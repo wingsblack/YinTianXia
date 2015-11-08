@@ -1,13 +1,25 @@
-﻿body, ul, li {
+﻿
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote, th, td, ol, ul, li, img, input, textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ul, li {
     margin: 0;
     padding: 0;
     list-style: none outside none;
 }
 
-
 a {
     text-decoration: none;
     color: #222;
+}
+
+
+.table-fixed {
+    table-layout: fixed;
+    width:100%;
 }
 
 ::selection {
@@ -25,4 +37,12 @@ a {
 
 ::-webkit-scrollbar {
     width: 8px;
+}
+
+.clearFix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
 }
