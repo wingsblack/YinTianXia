@@ -1,4 +1,12 @@
 ﻿
+body {
+    font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.53846154;
+    color: #333;
+    background-color: #fff;
+}
+
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote, th, td, ol, ul, li, img, input, textarea {
     margin: 0;
     padding: 0;
@@ -22,6 +30,11 @@ a {
     width:100%;
 }
 
+input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
 ::selection {
     background: rgb(40,160,240);
     color: #ff0;
@@ -33,6 +46,10 @@ a {
     -moz-border-radius: 4px;
     border-radius: 4px;
     border: solid 1px #a6a6a6;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(128,128,128);
+    background: #808080;
 }
 
 ::-webkit-scrollbar {
