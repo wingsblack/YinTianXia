@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:gs="http://www.gensee.com/ec">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
@@ -9,15 +9,31 @@
     <link href="theme/old/style.css" rel="stylesheet" />
     <style type="text/css">
     </style>
-    <script src="js/plugin/jquery/jquery.js"></script>
-    <script src="js/plugin/artdialog/jquery.artDialog.js"></script>
-    <script src="js/index.js"></script>
+    <script type="text/javascript" src="js/plugin/jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/plugin/artdialog/jquery.artDialog.js"></script>
+
+    <script type="text/javascript" src="js/plugin/websocket/sockjs.js"></script>
+    <script type="text/javascript" src="js/plugin/websocket/stomp.js"></script>
+
+    <script src="js/xwz/xwz.js"></script>
+    <script src="js/xwz/WebConfig.js"></script>
+    <script src="js/xwz/sock.js"></script>
+    <script src="js/xwz/Chat.js"></script>
+    <script src="js/xwz/PublicChat.js"></script>
+    <script src="js/xwz/data/User.js"></script>
+    <script src="js/xwz/User.js"></script>
+    <script src="js/xwz/index.js"></script>
+
+    <script type="text/javascript">
+        xwz.COMPANY_ID = "04f3e4566ddb4548a864a7b2c7aab7d7";
+    </script>
+
 </head>
 <body>
     <div class="zbbodybg"></div>
     <div class="lay-topbar">
         <div class="zblogo"><a href="#"><img height="50" src="theme/images/logo.png" alt="玄微子"></a></div>
-        <div class="zbzhuce"><a class="topzhuce">会员注册</a></div>
+        <div class="zbzhuce"><a class="topzhuce">会员注册登陆</a></div>
         <div class="rightqqbox">
             <div class="zhuliname"><span>点击咨询</span></div>
             <a onclick="ga('send','event','直播室','顶部：咨询客服1');" href="sumit.html" target="_blank"><img src="theme/images/topqqbtn.gif"></a>
@@ -39,7 +55,7 @@
             <li class="wapbtn">
                 <a href="javascript:void(0)"><i class="lefticon07"></i>手机直播室</a>
                 <div class="openerweima">
-                    
+
                     进入手机直播室<i class="sanjiao"></i>
                 </div>
             </li>
@@ -62,242 +78,166 @@
                 </div>
 
                 <div class="onlinecon">
-                    <div class="hd"></div>
                     <div class="onlineconlist bd">
-                        <div id="onlist" style="margin-top:25px;">
-                            <ul class="ollist" style="height: 543px; margin-top: -35px;"><li><i style="background-position:0px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客1213243</span><span class="level level3">LV&nbsp;3</span></div><div class="time">2015-11-08 00:06</div></div></li><li><i style="background-position:-635px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客jkj8580</span><span class="level level3">LV&nbsp;3</span></div><div class="time">2015-11-08 00:01</div></div></li><li><i style="background-position:-106px -93px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客4079656</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-07 23:57</div></div></li><li><i style="background-position:-424px -45px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">飞鱼</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-07 23:51</div></div></li><li><i style="background-position:-265px -93px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">海客谈银州</span><span class="level level3">LV&nbsp;3</span></div><div class="time">2015-11-07 23:51</div></div></li><li><i style="background-position:-53px -45px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客33mm330</span><span class="level level2">LV&nbsp;2</span></div><div class="time">2015-11-07 23:46</div></div></li><li><i style="background-position:-635px -93px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客e55458j</span><span class="level level3">LV&nbsp;3</span></div><div class="time">2015-11-07 23:41</div></div></li><li><i style="background-position:-212px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客1435731</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-07 23:39</div></div></li><li><i style="background-position:-371px -45px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客jikij99</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-07 23:35</div></div></li><li><i style="background-position:-635px -93px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">心想事成</span><span class="level level2">LV&nbsp;2</span></div><div class="time">2015-11-07 23:30</div></div></li><li><i style="background-position:-212px -45px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">抽离</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-07 23:30</div></div></li><li><i style="background-position:-371px -93px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客kf7kf43</span><span class="level level2">LV&nbsp;2</span></div><div class="time">2015-11-07 23:24</div></div></li><li><i style="background-position:-530px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客2148500</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-07 23:22</div></div></li><li><i style="background-position:-635px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">雨潇潇</span><span class="level level3">LV&nbsp;3</span></div><div class="time">2015-11-07 23:16</div></div></li><li><i style="background-position:-106px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">负心人</span><span class="level level3">LV&nbsp;3</span></div><div class="time">2015-11-07 23:16</div></div></li><li><i style="background-position:-530px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">秋水伊人</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-07 23:12</div></div></li><li><i style="background-position:-530px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">依然</span><span class="level level2">LV&nbsp;2</span></div><div class="time">2015-11-07 23:07</div></div></li><li><i style="background-position:-318px -93px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客3782902</span><span class="level level1">LV&nbsp;1</span></div><div class="time">2015-11-08 00:17</div></div></li><li><i style="background-position:-53px -93px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">倚窗听雨</span><span class="level level2">LV&nbsp;2</span></div><div class="time">2015-11-08 00:12</div></div></li><li><i style="background-position:-265px 0px"></i><div class="keabout"><div class="namelevel clearFix"><span class="name">游客445555m</span><span class="level level2">LV&nbsp;2</span></div><div class="time">2015-11-08 00:09</div></div></li></ul>
+                            <ul class="ollist"  id="onlist">
+                                
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="zbbigmiddle">
+            <div class="shishizbbox">
+                <div class="sszbtitle">
+                    <h2>实时直播</h2>
+                    <div class="paomadeng">
+                        <marquee direction="left" id="notice" scrollamount="3">
+                            <a href="sumit.html" target="_blank">欢迎来到银天下直播室，VIP专家团队实时策略已公布，详询QQ助理~~</a>
+                        </marquee>
+                    </div>
+                    <div class="sszbcon">
+                        <div class="sszbconlist">
+                            <ul class="clearFix" id="panel">
+                                
+                            </ul>
+                        </div>
+                        <div class="editor-bar">
+                            <div class="robot-chat-wrap" style="margin:5px 0 0 5px;">
+                                <div class="robot-list">
+                                    <div class="SimulationSelect" id="SimulationSelect">
+                                        <span class="SimulationText" value="" selectIndex="0">请选择</span>
+                                        <div class="SimulationOptions">
+
+                                            <a value="4028911849970e79014997108a7b0000">玄微子</a>
+
+                                            <a value="4028911849970e7901499710b8fb0001">白银</a>
+
+                                            <a value="4028911849970e7901499710df2b0002">海交</a>
+
+                                            <a value="4028911849970e7901499711070a0003">虚拟用户7</a>
+
+                                            <a value="4028911849970e79014997112c860004">虚拟用户8</a>
+
+                                            <a value="4028911849970e7901499711c3500005">机器人5</a>
+
+                                            <a value="4028911849970e7901499711e2d10006">机器人6</a>
+
+                                            <a value="4028911849970e790149971206320007">机器人7</a>
+
+                                            <a value="4028911849970e79014997122cce0008">机器人8</a>
+
+                                            <a value="4028911849970e790149971282b90009">机器人9</a>
+
+                                            <a value="40289a814993d0d7014993ed3d1b0001">机器人4</a>
+
+                                            <a value="40289a814994ac57014994c155b70002">路人甲</a>
+
+                                            <a value="40289a814994ac57014994c196270003">路人乙</a>
+
+                                            <a value="40289a814994ac57014994c1e7590004">路人丙</a>
+
+                                            <a value="40289a814994ac57014994c215c70005">路人丁</a>
+
+                                            <a value="40289a814994ac57014994c2bcc20006">虚拟用户1</a>
+
+                                            <a value="40289a814994ac57014994c2f7c00007">虚拟用户2</a>
+
+                                            <a value="40289a814994ac57014994c33e370008">虚拟用户3</a>
+
+                                            <a value="54ccfd6bbb514a1f8d6fb681385a8626">机器人3</a>
+
+                                            <a value="9429333b20b94f2e9c8e7ec3a3fcaf5b">机器人1</a>
+
+                                            <a value="ea3af0f04d622a71014d8a007dbb0006">Robert</a>
+
+                                            <a class="selected" value="">请选择</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="select-robot-chat">
+                                    <input type="checkbox" name="robot-chat">
+                                </div>
+                            </div>
+                            <div class="handan-btn" style="width:45px;height:30px;">
+                                <a style="text-index:-99999">发布喊单</a>
+                            </div>
+                            <div class="ask" style="width:45px;height:30px;">
+                                <a></a>
+                            </div>
+                        </div>
+                        <div class="ytx-fayan" id="ytx-fayan">
+
+                            <div class="ytx-fayan-toolbar  clearfix" id="ytx-fayan-toolbar">
+                                <a class="toolbar-icon toolbar-icon-face">表情</a>
+                                <a data-msg="[@good][@good][@good][@good][@good]">赞一个</a>
+                                <a data-msg="[@鲜花][@鲜花][@鲜花][@鲜花][@鲜花]">送花</a>
+                                <a>投资宝典</a>
+
+                                <div class="ask">
+                                    <a href="###"></a>
+                                </div>
+                            </div>
+                            <div class="ytx-fayan-box">
+                                <div class="ytx-input-box">
+                                    <textarea id="ytx-input" class="ytx-input"></textarea>
+                                </div>
+                                <div class="ytx-btn ytx-btn-fayan " id="send_msg_btn">
+                                    发言
+                                </div>
+
+                            </div>
+                            <!--表情框-->
+                            <div class="ytx-popface" id="ytx-popface">
+                                <div class="ytx-popface-title">
+
+                                </div>
+                                <div id="ytxPopfaceBoxList"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="zbbigright" id="zbbigright">
-            <table class="table-fixed" border="0" cellpadding="0" cellspacing="0" id="tdtab">
-                <tbody>
-                    <tr>
-                        <td class="lefttd">
-                            <div class="shishizbbox">
-                                <div class="sszbtitle" >
-                                    <h2>实时直播</h2>
-                                    <div class="paomadeng">
-                                        <marquee direction="left" id="notice" scrollamount="3">
-                                            <a href="sumit.html" target="_blank">欢迎来到银天下直播室，VIP专家团队实时策略已公布，详询QQ助理~~</a>
-                                        </marquee>
-                                    </div>
-                                    <div class="sszbcon">
-                                        <div class="sszbconlist">
-                                            <ul class="clearFix" id="panel" style="height: 671px;">
-                                                <li id="8618201"><div class="time">20:52</div><i style="background-position:-265px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客4821092</div><div class="atext" id="content"><img src="theme/images/emotion/ding.gif"></div></li>
-                                                <li id="8618204"><div class="time">20:52</div><i style="background-position:-583px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">光头光棍</div><div class="atext" id="content">宣老师，加油，一直觉得你很厉害，再创11连胜辉煌吧</div></li>
-                                                <li id="8618209"><div class="time">20:53</div><i style="background-position:-371px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">萌宝宝</div><div class="atext" id="content">老师到时候在线么？可以带我们一起么？</div></li>
-                                                <li id="8618210"><div class="time">20:53</div><i style="background-position:-371px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">南风催</div><div class="atext" id="content"><img src="theme/images/emotion/zan.gif"></div></li>
-                                                <li id="8618234"><div class="time">20:53</div><i style="background-position:-583px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1518410</div><div class="atext" id="content"><img src="theme/images/emotion/flower.gif"></div></li>
-                                                <li id="8618249"><div class="time">20:54</div><i style="background-position:-583px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1518410</div><div class="atext" id="content">不管怎么样，我只知道这几天宣老师让我赚钱了。</div></li>
-                                                <li id="8618255"><div class="time">20:54</div><i style="background-position:-265px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客241155</div><div class="atext" id="content"><img src="theme/images/emotion/zan.gif"></div></li>
-                                                <li id="8618257"><div class="time">20:55</div><i style="background-position:-583px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1518410</div><div class="atext" id="content"><img src="theme/images/emotion/zan.gif"></div></li>
-                                                <li id="8618285"><div class="time">20:56</div><i style="background-position:-477px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">企划</div><div class="text">对</div><div class="namebox" id="nickname">游客1518410：</div><div class="atext" id="content">我也小盈利，哈哈</div></li>
-                                                <li id="8618288"><div class="time">20:56</div><i style="background-position:-635px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客243122</div><div class="atext" id="content">宣老师站在巅峰，笑看那些嘲讽他的跳梁小丑。站在巅峰的人是不需要理会山脚下那些跳梁小丑的，只需要坚持自己的道路即可</div></li>
-                                                <li id="8618290"><div class="time">20:56</div><i style="background-position:-159px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">苏哲</div><div class="atext" id="content">现在原油可以进空吗</div></li>
-                                                <li id="8618299"><div class="time">20:56</div><i style="background-position:-159px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">苏哲</div><div class="atext" id="content">现在原油可以进空吗</div></li>
-                                                <li id="8618383"><div class="time">21:00</div><i style="background-position:-53px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">玩赚金银</div><div class="atext" id="content"><img src="theme/images/emotion/zan.gif"></div></li>
-                                                <li id="8618386"><div class="time">21:00</div><i style="background-position:-583px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客7026929</div><div class="atext" id="content">这么厉害为什么不穿马甲</div></li>
-                                                <li id="8618406"><div class="time">21:01</div><i style="background-position:-530px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客4157866</div><div class="atext" id="content">小萱萱  你长得好欠揍</div></li>
-                                                <li id="8618411"><div class="time">21:02</div><i style="background-position:-371px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">追风筝的人</div><div class="atext" id="content">不喜欢宣老师的，直接把网页关了，没人强迫你听也没人要你做</div></li>
-                                                <li id="8618420"><div class="time">21:02</div><i style="background-position:-212px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客8303897</div><div class="atext" id="content">你们马甲怎么穿的</div></li>
-                                                <li id="8618425"><div class="time">21:02</div><i style="background-position:-583px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客7026929</div><div class="atext" id="content"><img src="theme/images/emotion/ding.gif"></div></li>
-                                                <li id="8618439">
-                                                    <div class="time">21:03</div><i style="background-position:-424px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客5805149</div><div class="atext" id="content">
-                                                        这么厉害还需要当老师讲的那么累吗？自己开户做
-                                                    </div>
-                                                </li>
-                                                <li id="8618452"><div class="time">21:03</div><i style="background-position:-106px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">捕食者</div><div class="atext" id="content"><img src="theme/images/emotion/zan.gif"></div></li>
-                                                <li id="8618463"><div class="time">21:03</div><i style="background-position:-265px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客4821092</div><div class="atext" id="content">老师你牛</div></li>
-                                                <li id="8618470"><div class="time">21:03</div><i style="background-position:-106px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">捕食者</div><div class="atext" id="content">不管怎么样宣老师给的单子还是满厉害的</div></li>
-                                                <li id="8618479"><div class="time">21:04</div><i style="background-position:-583px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">小心翼翼</div><div class="atext" id="content">老师，我没有听到你的讲课，我没有进去做空单，好可惜啊</div></li>
-                                                <li id="8618483"><div class="time">21:04</div><i style="background-position:-265px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客7306900</div><div class="atext" id="content"><img src="theme/images/emotion/zan.gif"></div></li>
-                                                <li id="8618488">
-                                                    <div class="time">21:04</div><i style="background-position:-371px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">追风筝的人</div><div class="atext" id="content">
-                                                        【游客5805149:这么厉害还需要当老师讲的那么累吗？自己开户做
-                                                        】那你这么厉害还需要来听么
-                                                    </div>
-                                                </li>
-                                                <li id="8618502"><div class="time">21:05</div><i style="background-position:-106px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">宣老师棒棒哒</div><div class="atext" id="content">宣老师保护好嗓子啊</div></li>
-                                                <li id="8618506"><div class="time">21:05</div><i style="background-position:-583px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客3119953</div><div class="atext" id="content">宣老师，白银日内会不会跌到2890</div></li>
-                                                <li id="8618560"><div class="time">21:07</div><i style="background-position:-477px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客8151682</div><div class="atext" id="content">没有不可能，只有想不到</div></li>
-                                                <li id="8618570"><div class="time">21:08</div><i style="background-position:-635px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">哇咔咔</div><div class="atext" id="content">宣老师一会还有直播么？谁知道</div></li>
-                                                <li id="8618571"><div class="time">21:08</div><i style="background-position:-371px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客8196848</div><div class="atext" id="content">声音怎么这么小</div></li>
-                                                <li id="8618589"><div class="time">21:08</div><img src="http://www.tiantong99.com//static/other/user/upload/file/jry/20150727/baf3b869-082c-4e92-b8e1-f301a5ac4c9e.jpg"><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox teacher" id="name">银天下助理-小雪</div><div class="atext" id="content">老师休息片刻就会回来哦~~~大家有问题咨询助理</div></li>
-                                                <li id="8618728"><div class="time">21:13</div><i style="background-position:-106px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客4119787</div><div class="atext" id="content">宣说得太直接了，得罪了人，不然不会有果多人进来捣乱的</div></li>
-                                                <li id="8618907"><div class="time">21:19</div><i style="background-position:-53px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客9654742</div><div class="atext" id="content"><img src="theme/images/emotion/flower.gif"></div></li>
-                                                <li id="8618975"><div class="time">21:22</div><i style="background-position:-530px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">ooo111</div><div class="atext" id="content"> 别吵  吵什么 好好听课</div></li>
-                                                <li id="8619020"><div class="time">21:23</div><i style="background-position:-477px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">企划</div><div class="atext" id="content">其实明摆着就是同行捣乱。见不得别人好</div></li>
-                                                <li id="8619026"><div class="time">21:23</div><i style="background-position:-371px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客3984363</div><div class="atext" id="content">老师很漂亮</div></li>
-                                                <li id="8619036"><div class="time">21:24</div><i style="background-position:-371px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客3984363</div><div class="atext" id="content"><img src="theme/images/emotion/flower.gif"></div></li>
-                                                <li id="8619058"><div class="time">21:24</div><i style="background-position:-635px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1462841</div><div class="atext" id="content">胡说八道美国是世界超级强国</div></li>
-                                                <li id="8619067"><div class="time">21:24</div><i style="background-position:-212px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">顺势而为</div><div class="atext" id="content">银继续空吗</div></li>
-                                                <li id="8619071"><div class="time">21:25</div><i style="background-position:-635px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1462841</div><div class="atext" id="content">只是美国要重新对世界洗盘</div></li>
-                                                <li id="8619081"><div class="time">21:25</div><i style="background-position:-583px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1207628</div><div class="atext" id="content">绿了吗这是</div></li>
-                                                <li id="8619097"><div class="time">21:26</div><i style="background-position:-530px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">流星雨</div><div class="atext" id="content">白银目前还可以做空么</div></li>
-                                                <li id="8619103"><div class="time">21:26</div><i style="background-position:-371px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">fyb</div><div class="atext" id="content"><img src="theme/images/emotion/zan.gif"></div></li>
-                                                <li id="8619109"><div class="time">21:26</div><i style="background-position:-53px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">天一阁</div><div class="atext" id="content">宣老师！耶伦的讲话与油的趋势有什么影响？？？？？？？？？？？？？？？？？？？？？？？？？？</div></li>
-                                                <li id="8619115"><div class="time">21:26</div><i style="background-position:-635px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1462841</div><div class="atext" id="content">美国已低调对全世界出招了</div></li>
-                                                <li id="8619116"><div class="time">21:26</div><i style="background-position:-530px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客7558823</div><div class="atext" id="content">老师请问Lsp如何使用有何技巧</div></li>
-                                                <li id="8619121"><div class="time">21:26</div><i style="background-position:-371px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客3984363</div><div class="atext" id="content">几年后名中国就是世界霸主</div></li>
-                                                <li id="8619138"><div class="time">21:27</div><i style="background-position:-583px -93px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客1520921</div><div class="atext" id="content">宣老师，初清数据出来后白银怎么做？</div></li>
-                                                <li id="8619141"><div class="time">21:27</div><i style="background-position:-159px 0px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">苏哲</div><div class="atext" id="content">原油现在还能空吗</div></li>
-                                                <li id="8619142">
-                                                    <div class="time">21:27</div><img src="http://www.tiantong99.com//static/other/user/upload/file/jry/20150727/baf3b869-082c-4e92-b8e1-f301a5ac4c9e.jpg"><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox teacher" id="name">银天下助理-小雪</div><div class="atext" id="content">
-                                                        今日美联储将有众多官员发表密集的讲话，包括美联储主席耶伦，副主席费希尔、纽约联储主席杜德利等6位官员将相继发言~
-                                                    </div>
-                                                </li>
-                                                <li id="8619158"><div class="time">21:27</div><i style="background-position:-53px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">天一阁</div><div class="atext" id="content">老师！耶伦的讲话与油的趋势有什么影响？？？？？？？？？？？？？？？？？？？？？？？？？？</div></li>
-                                                <li id="8619164"><div class="time">21:28</div><i style="background-position:-583px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">游客9093953</div><div class="atext" id="content">宣老师 白银止盈看哪里</div></li>
-                                                <li id="8619169"><div class="time">21:28</div><i style="background-position:-530px -45px"></i><div class="sszbconhuifu" id="say" style="display:none"><div class="huifubox"><a href="#" class="huifuboxcon">对TA说</a></div></div><div class="namebox" id="name">流星雨</div><div class="atext" id="content">萱萱原来都是晚上给策略来着</div></li>
-                                            </ul>
-                                        </div>
-                                        <div class="editor-bar">
-                                            <div class="robot-chat-wrap" style="margin:5px 0 0 5px;">
-                                                <div class="robot-list">
-                                                    <div class="SimulationSelect" id="SimulationSelect">
-                                                        <span class="SimulationText" value="" selectIndex="0">请选择</span>
-                                                        <div class="SimulationOptions">
-
-                                                            <a value="4028911849970e79014997108a7b0000">玄微子</a>
-
-                                                            <a value="4028911849970e7901499710b8fb0001">白银</a>
-
-                                                            <a value="4028911849970e7901499710df2b0002">海交</a>
-
-                                                            <a value="4028911849970e7901499711070a0003">虚拟用户7</a>
-
-                                                            <a value="4028911849970e79014997112c860004">虚拟用户8</a>
-
-                                                            <a value="4028911849970e7901499711c3500005">机器人5</a>
-
-                                                            <a value="4028911849970e7901499711e2d10006">机器人6</a>
-
-                                                            <a value="4028911849970e790149971206320007">机器人7</a>
-
-                                                            <a value="4028911849970e79014997122cce0008">机器人8</a>
-
-                                                            <a value="4028911849970e790149971282b90009">机器人9</a>
-
-                                                            <a value="40289a814993d0d7014993ed3d1b0001">机器人4</a>
-
-                                                            <a value="40289a814994ac57014994c155b70002">路人甲</a>
-
-                                                            <a value="40289a814994ac57014994c196270003">路人乙</a>
-
-                                                            <a value="40289a814994ac57014994c1e7590004">路人丙</a>
-
-                                                            <a value="40289a814994ac57014994c215c70005">路人丁</a>
-
-                                                            <a value="40289a814994ac57014994c2bcc20006">虚拟用户1</a>
-
-                                                            <a value="40289a814994ac57014994c2f7c00007">虚拟用户2</a>
-
-                                                            <a value="40289a814994ac57014994c33e370008">虚拟用户3</a>
-
-                                                            <a value="54ccfd6bbb514a1f8d6fb681385a8626">机器人3</a>
-
-                                                            <a value="9429333b20b94f2e9c8e7ec3a3fcaf5b">机器人1</a>
-
-                                                            <a value="ea3af0f04d622a71014d8a007dbb0006">Robert</a>
-
-                                                            <a class="selected" value="">请选择</a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="select-robot-chat">
-                                                    <input type="checkbox" name="robot-chat">
-                                                </div>
-                                            </div>
-                                            <div class="handan-btn" style="width:45px;height:30px;">
-                                                <a  style="text-index:-99999">发布喊单</a>
-                                            </div>
-                                            <div class="ask" style="width:45px;height:30px;">
-                                                <a ></a>
-                                            </div>
-                                        </div>
-                                        <div class="ytx-fayan" id="ytx-fayan">
-
-                                            <div class="ytx-fayan-toolbar  clearfix" id="ytx-fayan-toolbar">
-                                                <a class="toolbar-icon toolbar-icon-face">表情</a>
-                                                <a data-msg="[@good][@good][@good][@good][@good]">赞一个</a>
-                                                <a data-msg="[@鲜花][@鲜花][@鲜花][@鲜花][@鲜花]">送花</a>
-                                                <a>投资宝典</a>
-
-                                                <div class="ask" style="width:45px;height:30px;">
-                                                    <a href="###"></a>
-                                                </div>
-                                            </div>
-                                            <div class="ytx-fayan-box">
-                                                <div class="ytx-input-box">
-                                                    <textarea id="ytx-input" class="ytx-input"></textarea>
-                                                </div>
-                                                <div class="ytx-btn ytx-btn-fayan " id="send_msg_btn">
-                                                    发言
-                                                </div>
-
-                                            </div>
-                                            <!--表情框-->
-                                            <div class="ytx-popface" id="ytx-popface">
-                                                <div class="ytx-popface-title">
-
-                                                </div>
-                                                <div id="ytxPopfaceBoxList"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="righttd" style="">
-                            <div class="video" style="padding-right: 15px;">
-                                <embed src="" quality="high" width="100%" height="100%" align="middle" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" type="application/x-shockwave-flash">
-                                <div class="video_bottom_adv">
-                                    <div class="slide txtMarquee-left">
-                                        <div class="bd">
-                                            <marquee behavior="scroll" direction="left" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">
-                                                <ul class="infoList">
-                                                    <li>白银正在直播中。。。。。。</li>
-                                                </ul>
-                                            </marquee>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="guangbo" >
-                                <div class="ytx-guangbo-bg"></div>
-                                <div class="ytx-guangbo" id="ytx-guangbo">
-                                    <div class="ytx-guangbo-title">
-                                        <span class="current">石油介绍<i></i></span>
-                                        <span>玄微子</span>
-                                        <span>盈利Top10</span>
-                                        <span>乾坤线适用</span>
-                                    </div>
-                                    <div class="ytx-guangbo-context" style="display:block;">
-                                        测试内容1
-                                    </div>
-                                    <div class="ytx-guangbo-context">
-                                        测试内容2
-                                    </div>
-                                    <div class="ytx-guangbo-context">
-                                        测试内容3
-                                    </div>
-                                    <div class="ytx-guangbo-context">
-                                        测试内容4
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="zbbigright">
+            <div class="video">
+                <embed src="" quality="high" width="100%" height="100%" align="middle" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" type="application/x-shockwave-flash">
+                <div class="video_bottom_adv">
+                    <div class="slide txtMarquee-left">
+                        <div class="bd">
+                            <marquee behavior="scroll" direction="left" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">
+                                <ul class="infoList">
+                                    <li>白银正在直播中。。。。。。</li>
+                                </ul>
+                            </marquee>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guangbo">
+                <div class="ytx-guangbo-bg"></div>
+                <div class="ytx-guangbo" id="ytx-guangbo">
+                    <div class="ytx-guangbo-title">
+                        <span class="current">石油介绍<i></i></span>
+                        <span>玄微子</span>
+                        <span>盈利Top10</span>
+                        <span>乾坤线适用</span>
+                    </div>
+                    <div class="ytx-guangbo-context" style="display:block;">
+                        测试内容1
+                    </div>
+                    <div class="ytx-guangbo-context">
+                        测试内容2
+                    </div>
+                    <div class="ytx-guangbo-context">
+                        测试内容3
+                    </div>
+                    <div class="ytx-guangbo-context">
+                        测试内容4
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="lay-main-video"></div>
     </div>
     <div id="user_login_fincebox" style="display:none;">
         <div id="user-regitster-wrap-step1" style="display:none">

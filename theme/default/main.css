@@ -36,7 +36,6 @@ body {
     display: inline;
     margin-left: 20px;
     float: left;
-  
     height: 50px;
 }
 
@@ -53,7 +52,7 @@ body {
     width: 118px;
     height: 28px;
     background: url(images/topzhucebtnbg.png) no-repeat 0 0;
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
     text-align: center;
     line-height: 28px;
@@ -243,7 +242,6 @@ img {
 .zbleftside {
     display: inline;
     margin-left: 10px;
-    float: left;
     width: 190px;
 }
 
@@ -338,11 +336,15 @@ img {
     zoom: 1;
 }
 
-.onlinebox .onlinecon .ollist li i {
+.onlinebox .onlinecon .ollist li i, .onlinebox .onlinecon .ollist li img {
     float: left;
     background: url(../images/touxiangpic01.png) no-repeat;
     width: 30px;
     height: 30px;
+}
+
+.onlinebox .onlinecon .ollist li img {
+    background:none;
 }
 
 .onlinebox .onlinecon .ollist li .keabout {
@@ -411,27 +413,41 @@ img {
 
 
 /*实时直播*/
-.zbbigright {
-    margin: 0 20px 0 200px;
+.zbbigmiddle {
+    position: absolute;
+    left: 200px;
+    right: 710px;
+    min-width: 636px;
+    top: 0;
+    height: 100%;
 }
 
-.zbbigright td {
-    vertical-align: top;
+.zbbigright {
+    position: absolute;
+    right: 0;
+    width: 700px;
+    top: 24px;
+    bottom: 0;
 }
-/*.zbbigright td.lefttd {width:48%;}
-.zbbigright td.righttd {width:52%;}*/
-.zbbigright td.righttd {
-    width: 900px;
+
+@media screen and (max-width: 1628px) {
+    .zbbigright {
+        left: 845px;
+        right: auto;
+    }
 }
 
 .shishizbbox {
+    height: 100%;
     margin-left: 10px;
 }
 
 .shishizbbox .sszbtitle {
+    position: relative;
     margin-bottom: 4px;
     line-height: 20px;
     overflow: hidden;
+    height: 100%;
 }
 
 .shishizbbox .sszbtitle h2 {
@@ -456,7 +472,11 @@ img {
 }
 
 .shishizbbox .sszbcon {
-    padding: 8px 10px 10px;
+    position: absolute;
+    left: 0px;
+    top: 24px;
+    right: 0px;
+    bottom: 0px;
     background: url(images/mainboxbg.png) repeat 0 0;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -464,13 +484,17 @@ img {
 }
 
 .shishizbbox .sszbcon .sszbconlist {
-    position: relative;
+    position: absolute;
+    bottom: 166px;
+    top: 10px;
+    left: 10px;
+    right: 0px;
 }
 
 .shishizbbox .sszbcon .sszbconlist ul {
     overflow-x: hidden;
     overflow-y: auto;
-    padding-top: 12px;
+    height: 100%;
 }
 
 .shishizbbox .sszbcon .sszbconlist ul li {
@@ -595,12 +619,28 @@ img {
     color: #cc0000;
 }
 
+.shishizbbox .sszbcon .sszbconlist .sszbtip{
+   text-align:center;
+}
+.shishizbbox .sszbcon .sszbconlist .sszbtip span {
+     display:inline-block;
+    background:#000;
+    color:#fff;
+    padding:3px 10px;
+    margin:0 auto;
+}
+
+
+
 
 /*---------改版仿银天下发言框---------------------------*/
 
 .editor-bar {
+    position: absolute;
+    bottom: 134px;
     height: 32px;
-    background: url(images/pubfayanbg.png)
+    width: 100%;
+    background: url(images/pubfayanbg.png);
 }
 
 .editor-bar > div {
@@ -655,6 +695,7 @@ img {
 .editor-bar > div.ask {
     float: right;
 }
+
 .editor-bar > div.ask a {
     display: block;
     height: 30px;
@@ -683,7 +724,6 @@ img {
 
 
 .robot-chat-wrap {
-  
 }
 
 .robot-chat-wrap .robot-list {
@@ -702,7 +742,8 @@ img {
     height: 124px;
     background: url(images/pubfayanbg.png);
     padding-top: 10px;
-    position: relative;
+    position: absolute;
+    bottom: 0;
 }
 
 .ytx-fayan-toolbar {
@@ -726,6 +767,8 @@ img {
     text-decoration: none;
 }
 
+
+
 .ytx-fayan-toolbar a:hover {
     color: #e8e7e9;
 }
@@ -738,6 +781,22 @@ img {
 
 .ytx-fayan-toolbar .toolbar-icon-face {
     background: url(images/toolbar_icon_face.png) no-repeat 10px 4px;
+}
+
+
+.ytx-fayan-toolbar div.ask {
+    float: right;
+    margin-top: -5px;
+    width: 45px;
+    height: 30px;
+}
+
+.ytx-fayan-toolbar div.ask a {
+    display: block;
+    height: 30px;
+    width: 30px;
+    background: url(images/t3.png) no-repeat -223px -5px;
+    border: none;
 }
 
 .ytx-fayan-box {
@@ -779,7 +838,7 @@ img {
 }
 
 .ytx-btn-fayan {
-    margin-top:5px;
+    margin-top: 5px;
     width: 66px;
     height: 46px;
     line-height: 46px;
@@ -857,6 +916,7 @@ img {
     margin-bottom: 5px;
     position: relative;
     background: #000;
+    padding-right: 15px;
 }
 
 .video_bottom_adv {
@@ -897,7 +957,10 @@ img {
 
 .ytx-guangbo {
     height: 100%;
-    position: relative;
+    position: absolute;
+    top: 500px;
+    bottom: 0;
+    width: 100%;
     z-index: 10;
 }
 
@@ -907,7 +970,7 @@ img {
     font-size: 14px;
     height: 40px;
     line-height: 40px;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 .ytx-guangbo-title span {
