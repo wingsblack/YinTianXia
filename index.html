@@ -4,11 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="theme/css/reset.css" rel="stylesheet" />
+
+    <link href="theme/old/style.css" rel="stylesheet" />
+
     <link href="theme/default/main.css" rel="stylesheet" />
     <link href="js/plugin/artdialog/skins/default.css" rel="stylesheet" />
-    <link href="theme/old/style.css" rel="stylesheet" />
-    <style type="text/css">
-    </style>
+    
+
+   
+
+    <style type="text/css"></style>
     <script type="text/javascript" src="js/plugin/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/plugin/artdialog/jquery.artDialog.js"></script>
 
@@ -33,7 +38,34 @@
     <div class="zbbodybg"></div>
     <div class="lay-topbar">
         <div class="zblogo"><a href="#"><img height="50" src="theme/images/logo.png" alt="玄微子"></a></div>
-        <div class="zbzhuce"><a class="topzhuce">会员注册登陆</a></div>
+        <div class="zbzhuce" style="display:none"><a class="topzhuce">会员注册登陆</a></div>
+        <div class="login-info">
+            <div class="person_control_wrap">
+                <div class="thumb"><img src="/images/avatar/t3/32/01.png" id="img_avatar"></div>
+                <div href="###" class="person_control">
+                    <span style="color:#fff;">天才</span>
+                    <div class="person_info_box disN" style="height: auto; display: none;">
+
+                        <div>昵称：天才</div>
+                        <div class="func_wrap">
+                            <div class="thumb"><img src="/images/avatar/t3/32/01.png" id="img_avatar"></div>
+                            <div class="func_btn">
+                                <div><a href="###" id="bind_mobile">手机绑定</a></div>
+                                <div><a href="###" id="update_persondata">个人资料</a></div>
+                                <div><a href="###" id="repassword_link">修改密码</a></div>
+
+
+                                <div><a href="/gm/extends/myExtends">推广情况</a></div>
+
+                            </div>
+                        </div>
+                        <p class="logout-wrap">
+                            <i><img class="logout-icon" src="/front/assets2/img/logout.jpg" width="30" height="30"></i><a href="/account/logout">退出登录</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="rightqqbox">
             <div class="zhuliname"><span>点击咨询</span></div>
             <a onclick="ga('send','event','直播室','顶部：咨询客服1');" href="sumit.html" target="_blank"><img src="theme/images/topqqbtn.gif"></a>
@@ -86,154 +118,154 @@
                 </div>
             </div>
         </div>
-        <div class="zbbigmiddle">
-            <div class="shishizbbox">
-                <div class="sszbtitle">
-                    <h2>实时直播</h2>
-                    <div class="paomadeng">
-                        <marquee direction="left" id="notice" scrollamount="3">
-                            <a href="sumit.html" target="_blank">欢迎来到银天下直播室，VIP专家团队实时策略已公布，详询QQ助理~~</a>
-                        </marquee>
-                    </div>
-                    <div class="sszbcon">
-                        <div class="sszbconlist">
-                            <ul class="clearFix" id="panel">
-                                
-                            </ul>
+        <div class="zbbicontent">
+            <div class="zbbigmiddle">
+                <div class="shishizbbox">
+                    <div class="sszbtitle">
+                        <h2>实时直播</h2>
+                        <div class="paomadeng">
+                            <marquee direction="left" id="notice" scrollamount="3">
+                                <a href="sumit.html" target="_blank">欢迎来到银天下直播室，VIP专家团队实时策略已公布，详询QQ助理~~</a>
+                            </marquee>
                         </div>
-                        <div class="editor-bar">
-                            <div class="robot-chat-wrap" style="margin:5px 0 0 5px;">
-                                <div class="robot-list">
-                                    <div class="SimulationSelect" id="SimulationSelect">
-                                        <span class="SimulationText" value="" selectIndex="0">请选择</span>
-                                        <div class="SimulationOptions">
+                        <div class="sszbcon">
+                            <div class="sszbconlist">
+                                <ul class="clearFix" id="panel"></ul>
+                            </div>
+                            <div class="editor-bar">
+                                <div class="robot-chat-wrap" style="margin:5px 0 0 5px;">
+                                    <div class="robot-list">
+                                        <div class="SimulationSelect" id="SimulationSelect">
+                                            <span class="SimulationText" value="" selectIndex="0">请选择</span>
+                                            <div class="SimulationOptions">
 
-                                            <a value="4028911849970e79014997108a7b0000">玄微子</a>
+                                                <a value="4028911849970e79014997108a7b0000">玄微子</a>
 
-                                            <a value="4028911849970e7901499710b8fb0001">白银</a>
+                                                <a value="4028911849970e7901499710b8fb0001">白银</a>
 
-                                            <a value="4028911849970e7901499710df2b0002">海交</a>
+                                                <a value="4028911849970e7901499710df2b0002">海交</a>
 
-                                            <a value="4028911849970e7901499711070a0003">虚拟用户7</a>
+                                                <a value="4028911849970e7901499711070a0003">虚拟用户7</a>
 
-                                            <a value="4028911849970e79014997112c860004">虚拟用户8</a>
+                                                <a value="4028911849970e79014997112c860004">虚拟用户8</a>
 
-                                            <a value="4028911849970e7901499711c3500005">机器人5</a>
+                                                <a value="4028911849970e7901499711c3500005">机器人5</a>
 
-                                            <a value="4028911849970e7901499711e2d10006">机器人6</a>
+                                                <a value="4028911849970e7901499711e2d10006">机器人6</a>
 
-                                            <a value="4028911849970e790149971206320007">机器人7</a>
+                                                <a value="4028911849970e790149971206320007">机器人7</a>
 
-                                            <a value="4028911849970e79014997122cce0008">机器人8</a>
+                                                <a value="4028911849970e79014997122cce0008">机器人8</a>
 
-                                            <a value="4028911849970e790149971282b90009">机器人9</a>
+                                                <a value="4028911849970e790149971282b90009">机器人9</a>
 
-                                            <a value="40289a814993d0d7014993ed3d1b0001">机器人4</a>
+                                                <a value="40289a814993d0d7014993ed3d1b0001">机器人4</a>
 
-                                            <a value="40289a814994ac57014994c155b70002">路人甲</a>
+                                                <a value="40289a814994ac57014994c155b70002">路人甲</a>
 
-                                            <a value="40289a814994ac57014994c196270003">路人乙</a>
+                                                <a value="40289a814994ac57014994c196270003">路人乙</a>
 
-                                            <a value="40289a814994ac57014994c1e7590004">路人丙</a>
+                                                <a value="40289a814994ac57014994c1e7590004">路人丙</a>
 
-                                            <a value="40289a814994ac57014994c215c70005">路人丁</a>
+                                                <a value="40289a814994ac57014994c215c70005">路人丁</a>
 
-                                            <a value="40289a814994ac57014994c2bcc20006">虚拟用户1</a>
+                                                <a value="40289a814994ac57014994c2bcc20006">虚拟用户1</a>
 
-                                            <a value="40289a814994ac57014994c2f7c00007">虚拟用户2</a>
+                                                <a value="40289a814994ac57014994c2f7c00007">虚拟用户2</a>
 
-                                            <a value="40289a814994ac57014994c33e370008">虚拟用户3</a>
+                                                <a value="40289a814994ac57014994c33e370008">虚拟用户3</a>
 
-                                            <a value="54ccfd6bbb514a1f8d6fb681385a8626">机器人3</a>
+                                                <a value="54ccfd6bbb514a1f8d6fb681385a8626">机器人3</a>
 
-                                            <a value="9429333b20b94f2e9c8e7ec3a3fcaf5b">机器人1</a>
+                                                <a value="9429333b20b94f2e9c8e7ec3a3fcaf5b">机器人1</a>
 
-                                            <a value="ea3af0f04d622a71014d8a007dbb0006">Robert</a>
+                                                <a value="ea3af0f04d622a71014d8a007dbb0006">Robert</a>
 
-                                            <a class="selected" value="">请选择</a>
+                                                <a class="selected" value="">请选择</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="select-robot-chat">
+                                        <input type="checkbox" name="robot-chat">
+                                    </div>
+                                </div>
+                                <div class="handan-btn" style="width:45px;height:30px;">
+                                    <a style="text-index:-99999">发布喊单</a>
+                                </div>
+                                <div class="ask" style="width:45px;height:30px;">
+                                    <a></a>
+                                </div>
+                            </div>
+                            <div class="ytx-fayan" id="ytx-fayan">
+
+                                <div class="ytx-fayan-toolbar  clearfix" id="ytx-fayan-toolbar">
+                                    <a class="toolbar-icon toolbar-icon-face">表情</a>
+                                    <a data-msg="[@good][@good][@good][@good][@good]">赞一个</a>
+                                    <a data-msg="[@鲜花][@鲜花][@鲜花][@鲜花][@鲜花]">送花</a>
+                                    <a>投资宝典</a>
+
+                                    <div class="ask">
+                                        <a href="###"></a>
+                                    </div>
+                                </div>
+                                <div class="ytx-fayan-box">
+                                    <div class="ytx-input-box">
+                                        <textarea id="ytx-input" class="ytx-input"></textarea>
+                                    </div>
+                                    <div class="ytx-btn ytx-btn-fayan " id="send_msg_btn">
+                                        发言
                                     </div>
 
                                 </div>
-                                <div class="select-robot-chat">
-                                    <input type="checkbox" name="robot-chat">
-                                </div>
-                            </div>
-                            <div class="handan-btn" style="width:45px;height:30px;">
-                                <a style="text-index:-99999">发布喊单</a>
-                            </div>
-                            <div class="ask" style="width:45px;height:30px;">
-                                <a></a>
-                            </div>
-                        </div>
-                        <div class="ytx-fayan" id="ytx-fayan">
+                                <!--表情框-->
+                                <div class="ytx-popface" id="ytx-popface">
+                                    <div class="ytx-popface-title">
 
-                            <div class="ytx-fayan-toolbar  clearfix" id="ytx-fayan-toolbar">
-                                <a class="toolbar-icon toolbar-icon-face">表情</a>
-                                <a data-msg="[@good][@good][@good][@good][@good]">赞一个</a>
-                                <a data-msg="[@鲜花][@鲜花][@鲜花][@鲜花][@鲜花]">送花</a>
-                                <a>投资宝典</a>
-
-                                <div class="ask">
-                                    <a href="###"></a>
+                                    </div>
+                                    <div id="ytxPopfaceBoxList"></div>
                                 </div>
-                            </div>
-                            <div class="ytx-fayan-box">
-                                <div class="ytx-input-box">
-                                    <textarea id="ytx-input" class="ytx-input"></textarea>
-                                </div>
-                                <div class="ytx-btn ytx-btn-fayan " id="send_msg_btn">
-                                    发言
-                                </div>
-
-                            </div>
-                            <!--表情框-->
-                            <div class="ytx-popface" id="ytx-popface">
-                                <div class="ytx-popface-title">
-
-                                </div>
-                                <div id="ytxPopfaceBoxList"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="zbbigright">
-            <div class="video">
-                <embed src="" quality="high" width="100%" height="100%" align="middle" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" type="application/x-shockwave-flash">
-                <div class="video_bottom_adv">
-                    <div class="slide txtMarquee-left">
-                        <div class="bd">
-                            <marquee behavior="scroll" direction="left" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">
-                                <ul class="infoList">
-                                    <li>白银正在直播中。。。。。。</li>
-                                </ul>
-                            </marquee>
+            <div class="zbbigright">
+                <div class="video">
+                    <embed src="" quality="high" width="100%" height="100%" align="middle" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" type="application/x-shockwave-flash">
+                    <div class="video_bottom_adv">
+                        <div class="slide txtMarquee-left">
+                            <div class="bd">
+                                <marquee behavior="scroll" direction="left" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">
+                                    <ul class="infoList">
+                                        <li>白银正在直播中。。。。。。</li>
+                                    </ul>
+                                </marquee>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="guangbo">
-                <div class="ytx-guangbo-bg"></div>
-                <div class="ytx-guangbo" id="ytx-guangbo">
-                    <div class="ytx-guangbo-title">
-                        <span class="current">石油介绍<i></i></span>
-                        <span>玄微子</span>
-                        <span>盈利Top10</span>
-                        <span>乾坤线适用</span>
-                    </div>
-                    <div class="ytx-guangbo-context" style="display:block;">
-                        测试内容1
-                    </div>
-                    <div class="ytx-guangbo-context">
-                        测试内容2
-                    </div>
-                    <div class="ytx-guangbo-context">
-                        测试内容3
-                    </div>
-                    <div class="ytx-guangbo-context">
-                        测试内容4
+                <div class="guangbo">
+                    <div class="ytx-guangbo-bg"></div>
+                    <div class="ytx-guangbo" id="ytx-guangbo">
+                        <div class="ytx-guangbo-title">
+                            <span class="current">石油介绍<i></i></span>
+                            <span>玄微子</span>
+                            <span>盈利Top10</span>
+                            <span>乾坤线适用</span>
+                        </div>
+                        <div class="ytx-guangbo-context" style="display:block;">
+                            测试内容1
+                        </div>
+                        <div class="ytx-guangbo-context">
+                            测试内容2
+                        </div>
+                        <div class="ytx-guangbo-context">
+                            测试内容3
+                        </div>
+                        <div class="ytx-guangbo-context">
+                            测试内容4
+                        </div>
                     </div>
                 </div>
             </div>
@@ -292,7 +324,7 @@
                     <div class="inbox-wrap">
                         <i class="icon-name"></i>
                         <div>
-                            <input type="text" name="login" id="name" class="inbox brd1" placeholder="用户名/手机" maxlength="18">
+                            <input type="text" name="login" id="name" class="inbox brd1" placeholder="用户名/手机" maxlength="20">
                         </div>
                     </div>
                     <div class="inbox-wrap2">

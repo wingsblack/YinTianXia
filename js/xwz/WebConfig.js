@@ -29,8 +29,9 @@
 
     xwz.COMPANY_ID = null;
 
+    xwz.API_USER_LOGIN = xwz.API_HOST + "/account/ajaxLogin";
 
-
+    xwz.API_PUBLIC_CHAT_SEND = "/app/chat/";
 
     //获取公聊连接
     xwz.getPublicChat = function () {

@@ -60,6 +60,11 @@ body {
     cursor: pointer;
 }
 
+.login-info {
+    float:left;
+}
+
+
 
 .lay-topbar .rightqqbox {
     display: inline;
@@ -243,10 +248,11 @@ img {
     display: inline;
     margin-left: 10px;
     width: 190px;
+    height:100%;
+    position:relative;
 }
 
 .hangqingbox {
-    margin-bottom: 18px;
 }
 
 .hangqingbox .hqtitle {
@@ -307,6 +313,16 @@ img {
     padding: 3px 0;
 }
 
+
+.onlinebox {
+    position:absolute;
+    top:170px;
+    left:0;
+    bottom:0;
+    right:0;
+}
+
+
 .onlinebox .oltitle {
     margin-bottom: 4px;
     line-height: 20px;
@@ -327,6 +343,11 @@ img {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    position:absolute;
+    top:24px;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 .onlinebox .onlinecon .ollist li {
@@ -413,11 +434,18 @@ img {
 
 
 /*实时直播*/
+.zbbicontent {
+    position:absolute;
+    left:200px;
+    right:0;
+    top:0;
+    bottom:0;
+    height:100%;
+}
 .zbbigmiddle {
     position: absolute;
-    left: 200px;
-    right: 710px;
-    min-width: 636px;
+    left: 0;
+    right: 50%;
     top: 0;
     height: 100%;
 }
@@ -425,17 +453,17 @@ img {
 .zbbigright {
     position: absolute;
     right: 0;
-    width: 700px;
+    left:50%;    
     top: 24px;
     bottom: 0;
 }
 
-@media screen and (max-width: 1628px) {
+/*@media screen and (max-width: 1628px) {
     .zbbigright {
         left: 845px;
         right: auto;
     }
-}
+}*/
 
 .shishizbbox {
     height: 100%;
