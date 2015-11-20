@@ -12,10 +12,15 @@
     var xwz = window.xwz = {};
     xwz.EmptyFn = function () { };
 
+    /*
+        @source 源对象
+        @copy 被复制对象
+    */
     xwz.apply = function (source, copy) {
         for (var a in copy) {
             if (copy.hasOwnProperty(a)) source[a] = copy[a];
         }
+        return source;
     }
 
 
@@ -116,4 +121,9 @@
 
     }
    
+    xwz.Project = {};
+
+    xwz.setConfig = function (config) {
+        return xwz.apply(xwz.Project, config);
+    }
 }());

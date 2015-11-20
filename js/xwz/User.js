@@ -2,12 +2,13 @@
 
 !function () {
 
+
+
+
     //用户类
     var User = function () {
         this.getAllUser();
         this.method = xwz.getUserEvent();
-        
-
     }
 
 
@@ -91,15 +92,99 @@
         });
     }
 
-
     User.prototype.send = function (text) {
         //if (!this.isLogin) return;
         xwz.Socket.getInstance().send(xwz.API_PUBLIC_CHAT_SEND + xwz.COMPANY_ID, {}, text);
     }
 
-
-
     xwz.User = User;
+
+    User.prototype.RegisteredEvent = function () {
+
+        $(".topzhuce").click(function () {
+
+            dialog = art.dialog({
+                content: document.getElementById('user_login_fincebox'),
+                id: 'EF893L',
+                width: 388,
+                lock: true
+            })
+
+        });
+
+
+        $('#login_form').on("submit", function () {
+            var loginName = $("#name").val();
+            if (loginName.length == 0) {
+                $("#login-alert-error").html("<span>用户名不能为空</span>");
+                return false;
+            }
+            var password = $("#password").val();
+            if (password.length == 0) {
+                $("#login-alert-error").html("<span>密码不能为空</span>");
+                return false;
+            }
+
+            user.login(loginName, password);
+
+            return false;
+        });
+
+        $('#send_msg_btn').click(function () {
+
+            var text = $("#ytx-input").val();
+            if (text) {
+                var c = $("[name=robot-chat]").prop("checked");
+                var robot = $("#SimulationSelect .SimulationText").attr("value");
+                if (robot && c) {
+                    //机器人发言
+                    client.send(API.PUBLIC_CHAT_SEND + User.companyId, { 'uid': robot, 'role': 'robot' }, text);
+                } else {
+                    user.send(text);
+                }
+                $("#ytx-input").val("")
+                // tinyMCE.activeEditor.setContent("");
+
+            } else {
+                alert("聊天信息不能为空");
+            }
+            return false;
+        });
+
+        var faceOpen = false, selectOpen = false;
+
+        $(document).click(function () {
+            if (faceOpen) {
+                $("#ytx-popface").hide();
+                faceOpen = false;
+            }
+
+            if (selectOpen) {
+                faceOpen = false;
+                $("#SimulationSelect .SimulationOptions").hide();
+            }
+        })
+
+        $("#SimulationSelect > .SimulationText").click(function () {
+            $(this).next(".SimulationOptions").show();
+            selectOpen = true;
+            return false;
+        })
+
+        $("#SimulationSelect").delegate("a", "click", function () {
+            var $this = $(this);
+            var $target = $("#SimulationSelect > .SimulationText");
+            $target.html($this.html()).attr("value", $this.attr("value"))
+            $("#SimulationSelect .SimulationOptions").hide();
+
+            $this.addClass("selected").siblings().removeClass("selected");
+        })
+    }
+
+
+    var UserEdit = function (user) { }
+
+    UserEdit.Activation = function () {}
 
 
 
