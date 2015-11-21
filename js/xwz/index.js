@@ -36,6 +36,29 @@ $(function () {
     socket.RegisteredChat(user);
     
    
+
+
+    
+    $("#soft-download").click(function () {
+        //开户判断是否需要登录
+        if (xwz.Project.isLoginDownload && !user.isLogin) {
+            $(".topzhuce").click();
+            return false;
+        }
+        art.dialog({
+            content: document.getElementById('downloadlist'),
+            id: 'EF893L',
+            title: '软件下载',
+            width: 820,
+            zIndex: 1500,
+            lock: true
+        });
+    });
+
+    $('#cjrl').unbind('click').bind('click', function () {
+       
+        Util.dialog(xwz.API_RILI_LIST, 800, 500, "财经日历", 'handan');
+    });
 });
 
 //$(function () {

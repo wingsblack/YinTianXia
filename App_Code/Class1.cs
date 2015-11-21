@@ -55,7 +55,10 @@ public class Class1
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         HttpContext.Current.Response.ContentType = response.ContentType;
         Stream myResponseStream = response.GetResponseStream();
-
+        string Disposition = response.Headers.Get("Content-Disposition");
+        if (!string.IsNullOrEmpty(Disposition)) {
+            HttpContext.Current.Response.Headers.Add("Content-Disposition", Disposition);
+        }
         byte[] buffer = new byte[1 * 1024];
         int bytesProcessed = 0;
         int bytesRead;

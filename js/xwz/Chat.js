@@ -5,10 +5,17 @@
 
     Chat.appendMessage = function (msg) {
         if (!xwz.isArray(msg)) msg = [msg];
-
+        var emotionsDataMap = xwz.Project.emotionsDataMap;
         var html = '', len = msg.length;
         for (var i = 0; i < len; i++) {
             var message = msg[i];
+
+            
+            message.message = message.message.replace(/\[@([^\]]+)]/g, function (a, b, c) {
+                var url = emotionsDataMap[b];
+                return '<img src="' + url + '" />';
+            })
+
             html += '<li>' +
                      '<div class="time">' + message.time + '</div>' +
             '<img src="' + message.avatar + '">' +

@@ -33,6 +33,9 @@
 
     xwz.API_PUBLIC_CHAT_SEND = "/app/chat/";
 
+
+    xwz.API_RILI_LIST = xwz.API_HOST +  '/finance_calendar/list';
+
     //获取公聊连接
     xwz.getPublicChat = function () {
         if (xwz.COMPANY_ID == null) throw "缺少项目标识";

@@ -1,0 +1,528 @@
+/* reset */
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,\5b8b\4f53;color:#333;outline:0;}
+body{background:#fff;}
+a,a:hover{color:#333;}
+
+/* function */
+.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+.f-cb,.f-cbli li{zoom:1;}
+.f-ib{display:inline-block;*display:inline;*zoom:1;}
+.f-dn{display:none;}
+.f-db{display:block;}
+.f-fl{float:left;}
+.f-fr{float:right;}
+.f-pr{position:relative;}
+.f-prz{position:relative;zoom:1;}
+.f-oh{overflow:hidden;}
+.f-ff0{font-family:arial,\5b8b\4f53;}
+.f-ff1{font-family:"Microsoft YaHei",\5fae\8f6f\96c5\9ed1,arial,\5b8b\4f53;}
+.f-fs1{font-size:12px;}
+.f-fs2{font-size:14px;}
+.f-fwn{font-weight:normal;}
+.f-fwb{font-weight:bold;}
+.f-tal{text-align:left;}
+.f-tac{text-align:center;}
+.f-tar{text-align:right;}
+.f-taj{text-align:justify;text-justify:inter-ideograph;}
+.f-vam,.f-vama *{vertical-align:middle;}
+.f-wsn{word-wrap:normal;white-space:nowrap;}
+.f-pre{overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;}
+.f-wwb{white-space:normal;word-wrap:break-word;word-break:break-all;}
+.f-ti{overflow:hidden;text-indent:-30000px;}
+.f-ti2{text-indent:2em;}
+.f-lhn{line-height:normal;}
+.f-tdu,.f-tdu:hover{text-decoration:underline;}
+.f-tdn,.f-tdn:hover{text-decoration:none;}
+.f-toe{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;}
+.f-csp{cursor:pointer;}
+.f-csd{cursor:default;}
+.f-csh{cursor:help;}
+.f-csm{cursor:move;}
+.f-usn{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+
+
+/* function */
+.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+.f-cb,.f-cbli li{zoom:1;}
+.f-ib{display:inline-block;*display:inline;*zoom:1;}
+.f-dn{display:none;}
+.f-db{display:block;}
+.f-fl{float:left;}
+.f-fr{float:right;}
+.f-pr{position:relative;}
+.f-prz{position:relative;zoom:1;}
+.f-oh{overflow:hidden;}
+.f-ff0{font-family:arial,\5b8b\4f53;}
+.f-ff1{font-family:"Microsoft YaHei",\5fae\8f6f\96c5\9ed1,arial,\5b8b\4f53;}
+.f-fs1{font-size:12px;}
+.f-fs2{font-size:14px;}
+.f-fwn{font-weight:normal;}
+.f-fwb{font-weight:bold;}
+.f-tal{text-align:left;}
+.f-tac{text-align:center;}
+.f-tar{text-align:right;}
+.f-taj{text-align:justify;text-justify:inter-ideograph;}
+.f-vam,.f-vama *{vertical-align:middle;}
+.f-wsn{word-wrap:normal;white-space:nowrap;}
+.f-pre{overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;}
+.f-wwb{white-space:normal;word-wrap:break-word;word-break:break-all;}
+.f-ti{overflow:hidden;text-indent:-30000px;}
+.f-ti2{text-indent:2em;}
+.f-lhn{line-height:normal;}
+.f-tdu,.f-tdu:hover{text-decoration:underline;}
+.f-tdn,.f-tdn:hover{text-decoration:none;}
+.f-toe{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;}
+.f-csp{cursor:pointer;}
+.f-csd{cursor:default;}
+.f-csh{cursor:help;}
+.f-csm{cursor:move;}
+.f-usn{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+
+
+
+/* animation */
+/* 淡入 */
+.a-fadein{-webkit-animation-name:fadein;-moz-animation-name:fadein;-ms-animation-name:fadein;animation-name:fadein;}
+/* define */
+/* 淡入 */
+@-webkit-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@-moz-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@-ms-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+a{
+    color: #000;
+}
+body{
+    background: #eee;
+}
+.video{
+    height: 300px;
+    background: #000;
+    width: 100%;
+}
+.menu ul{
+    list-style: none;
+    /*overflow: hidden;*/
+}
+.menu ul li{
+    float: left;
+    height: 3em;
+    width: 25%;
+    position: relative;
+}
+.menu ul li em{
+    position: absolute;
+    top:3em;
+    width:0;
+    height:0;
+    border-width:10px;
+    border-style:solid dashed dashed dashed;
+    border-color:#e66161 transparent transparent transparent;
+    z-index: 20;
+    left: 50%;
+    margin-left: -10px;
+}
+.menu ul li a{
+    line-height: 3em;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.menu ul li.chat{
+    background: #0488D2;
+}
+.menu ul li em{
+    display: none;
+}
+.menu ul li.active em{
+    display: block;
+}
+.menu ul li.chat em{
+    border-color: #0488D2 transparent transparent transparent;
+}
+.menu ul li.qq{
+    background: #5AAABB;
+}
+.menu ul li.qq em{
+    border-color: #5AAABB transparent transparent transparent;
+}
+.menu ul li.data{
+    background: #F59831;
+}
+.menu ul li.data em{
+    border-color: #F59831 transparent transparent transparent;
+}
+.menu ul li.login{
+    background: #4A92C8;
+    /*padding: 4px;*/
+}
+.menu ul li.login em{
+    border-color: #4A92C8 transparent transparent transparent;
+}
+.menu ul li.login a{
+    background: red;
+    display: block;
+}
+.menu ul li.login em{
+    border-color: red transparent transparent transparent;
+}
+.chat-room{
+    /*height: 300px;*/
+}
+.menu{
+    /*overflow: hidden;*/
+    position: relative;
+}
+.send-box{
+    /*height: 30px;*/
+    display: box;
+    display:-moz-box;
+    display:-webkit-box;
+    box-orient: horizontal;
+    -webkit-box-orient:horizontal;
+    -moz-box-orient:horizontal;
+    border-top: 1px solid #ddd;
+    /*margin-bottom: 40px;*/
+    background: #fff;
+}
+.send-box .tool{
+    /*	box-flex: 1;
+        -moz-box-flex:1;
+        -webkit-box-flex:1;*/
+    /*width: 100px;*/
+}
+.send-box .input_text{
+    box-flex: 1;
+    -moz-box-flex:1;
+    -webkit-box-flex:1;
+}
+.send-box .input_text #message_cont{
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 4px;
+    border:1px solid #ddd;
+    margin: 0 auto;
+    height: 40px;
+    padding: 0px;
+    outline: none;
+    overflow-y:auto;
+}
+.send-box .input_submit{
+    /*	box-flex: 1;
+        -moz-box-flex:1;
+        -webkit-box-flex:1;*/
+    height: 30px;
+    width: 60px;
+}
+.tool{
+    padding: 10px 0 0 10px;
+
+}
+a.fenxiang{
+    background: #0488D2;
+    color: #fff;
+    border-radius: 2px;
+    padding: 10px 15px;
+    float: left;
+}
+a.fenxiang:active{
+    color: #333;
+}
+
+a.face{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    float: left;
+    border:1px solid #0488D2;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 4px;
+    color: #000;
+}
+.input_submit{
+    padding: 8px 4px 0 4px;
+}
+.input_submit input{
+    background: #0488D2;
+    padding: 10px 15px;
+    border-radius: 2px;
+    border:0;
+    color: #fff;
+
+}
+#caijin_data ul{
+    list-style: none;
+    overflow: none;
+    width: 100%;
+    display: box;
+    display:-moz-box;
+    display:-webkit-box;
+    box-orient: horizontal;
+    -webkit-box-orient:horizontal;
+    -moz-box-orient:horizontal;
+}
+#caijin_data ul li{
+    height: 3em;
+    line-height: 3em;
+    color: #333;
+    background: #ddd;
+
+}
+#caijin_data ul li:nth-child(1){
+    width: 30px;
+    padding: 0 5px;
+}
+#caijin_data ul li:nth-child(2){
+    box-flex: 1;
+    -moz-box-flex:1;
+    -webkit-box-flex:1;
+}
+#caijin_data ul li:nth-child(3){
+    width: 40px;
+    padding: 0 5px;
+}
+.bg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #000;
+    opacity: 0.7;
+    z-index: 800;
+}
+.auth_box{
+    width: 90%;
+    /*height:300px;*/
+    background: #fff;
+    display: block;
+    position: fixed;
+    left: 50%;
+    top:50%;
+    z-index: 801;
+    /*margin-left: -225px;*/
+}
+.auth_box h2{
+    /*overflow: hidden;*/
+}
+.auth_box h2 .tab{
+    float: left;
+    width: 50%;
+    position: relative;
+    background: #f1f1f1;
+}
+.auth_box h2 .tab a{
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: 3em;
+    line-height: 3em;
+}
+.auth_box h2 .active a{
+    background: #0488D2;
+    color: #fff;
+}
+.auth_box h2 .active em{
+    position: absolute;
+    top:3em;
+    width:0;
+    height:0;
+    border-width:10px;
+    border-style:solid dashed dashed dashed;
+    border-color:#e66161 transparent transparent transparent;
+    z-index: 20;
+    left: 50%;
+    margin-left: -10px;
+    border-color: #0488D2 transparent transparent transparent;
+}
+.error{
+    clear: both;
+    color: red;
+    text-align: center;
+    padding: 5px 0;
+    display: block;
+    width: 100%;
+}
+.auth_wrap{
+    margin: 0 auto;
+    padding: 0 5px;
+}
+.auth_box  label{
+    padding: 5px 0 5px 0;
+    display: block;
+}
+.auth_box input{
+    height: 30px;
+    border:1px solid #ddd;
+    width: 100%;
+    text-indent: 5px;
+}
+.auth_box .form_control{
+    text-align: center;
+    /*padding: 5px;*/
+    margin-bottom: 10px;
+}
+.auth_box .btn{
+    width: 100%;
+    height: 30px;
+    display: block;
+    border:0;
+    margin-bottom: 5px;
+    color: #fff;
+}
+.auth_box .btn.red{
+    background: red;
+}
+.auth_box .btn.default{
+    background: #f1f1f1;
+    color:#333;
+    border:1px solid #ddd;
+}
+.auth_box .btn.blue{
+    background: #0488D2;
+}
+.chat-room{
+    clear: both;
+    background: #eee;
+}
+.message_box{
+    overflow-y: auto;
+    height: 300px;
+}
+.message_box dd{
+    padding: 10px;
+    overflow: hidden;
+}
+.message_box dd span{
+    padding: 5px 5px;
+    overflow: hidden;
+    line-height: 32px;
+    float: left;
+}
+.message_box dd.mymsg span{
+    float: right;
+}
+.message_box dd.mymsg span img{
+    float: right;
+}
+
+.message_box dd.mymsg .qipao{
+    float: right;
+    margin-right: 5px;
+    background: #47FD6C;
+
+}
+.message_box dd.mymsg .qipao em{
+    border-color: transparent transparent transparent #47FD6C;
+    right: 0;
+    left: initial;
+    margin-right: -16px;
+}
+
+
+.message_box dd span img{
+    float: left;
+    width: 32px;
+}
+.message_box dd .qipao{
+    float: left;
+    background: #fff;
+    border:1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    position: relative;
+    margin-left: 5px;
+    color: #333;
+    word-wrap:break-word;
+}
+.message_box dd .qipao em{
+    position: absolute;
+    top:10px;
+    width:0;
+    height:0;
+    border-width:8px;
+    border-style:solid dashed dashed dashed;
+    border-color: transparent #fff  transparent transparent;
+    z-index: 20;
+    left: -16px;
+    /*margin-left: -10px;*/
+}
+.qq-more{
+    clear: both;
+    background: #eee;
+    /*height: 300px;*/
+    padding-top: 30px;
+}
+.qq-more a{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.menu_slide{
+    display: none;
+}
+.send_mobile_code{
+    padding: 0 5px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+.send_mobile_code:disabled{
+    background-color: #eee;
+}
+.chat_wrap{
+    position: relative;
+}
+.biaoqing{
+    position: absolute;
+    left: 65px;
+    bottom: 50px;
+    width: 156px;
+    overflow: hidden;
+    background: #fff;
+    z-index: 999;
+    border: 1px solid #eee;
+
+}
+.biaoqing li{
+    width: 25px;
+    float: left;
+    border:1px solid #eee;
+    margin-left: -1px;
+    margin-bottom: -1px;
+}
+.biaoqing li.face1{
+
+}
+
