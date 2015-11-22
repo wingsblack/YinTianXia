@@ -59,6 +59,8 @@ $(function () {
        
         Util.dialog(xwz.API_RILI_LIST, 800, 500, "财经日历", 'handan');
     });
+
+
 });
 
 //$(function () {

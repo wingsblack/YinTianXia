@@ -787,6 +787,37 @@ img {
     bottom: 0;
 }
 
+.ytx-loading {
+   position:absolute;
+   left:0;
+   top:0;
+   right:0;
+   bottom:0;
+   z-index:11111;
+}
+
+.ytx-loading .img {
+   position:absolute;
+   height:25px;
+   line-height:25px;
+   right:140px;
+   top:70px;
+   margin:-12.5px 0 0 0;
+}
+.ytx-loading .mask {
+    position:absolute;
+    background:#000;
+    opacity:.3;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+}
+.ytx-loading .img img {
+    margin-right:5px;
+    vertical-align:middle;
+}
+
 .ytx-fayan-toolbar {
     height: 30px;
 }
@@ -953,7 +984,7 @@ img {
 
 .video {
     width: 100%;
-    height: 500px;
+    height: 50%;
     margin-bottom: 5px;
     position: relative;
     background: #000;

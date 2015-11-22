@@ -2,8 +2,8 @@
 
 !function () {
 
-   
-    
+
+
     var user = null;
 
     //用户类
@@ -12,7 +12,7 @@
 
         this.getAllUser();
         this.method = xwz.getUserEvent();
-
+        this.data = {};
         user = this;
     }
 
@@ -26,6 +26,8 @@
     User.prototype.isLogin = false;
     User.prototype.isAdmin = false;
     User.prototype.isBindPhone = false;
+    User.prototype.isMenu = false;
+    User.prototype.data = {};
 
     User.prototype.getAllUser = function () {
         xwz.Util.ajaxGet(xwz.API_MEM_LIST, this.onLoadAllUser.bind())
@@ -70,26 +72,27 @@
 
 
 
-
     }
 
     User.prototype.login = function (loginName, password) {
         var _this = this;
         $.post(xwz.API_USER_LOGIN, "loginName=" + loginName + "&password=" + password, function (data) {
             if (data.code == 0) {
-                data = {
-                    id: "ea3af0f050a4589e0150a929e7e30149",
-                    roleCode: "service",
-                    nickName: "天才",
-                    sex: "",
-                    identityIcon: "member_1.png",
-                    avatar: "01",
-                    isBindPhone:false
-                }
+                //data = {
+                //    id: "ea3af0f050a4589e0150a929e7e30149",
+                //    roleCode: "service",
+                //    nickName: "天才",
+                //    sex: "",
+                //    identityIcon: "member_1.png",
+                //    avatar: "01",
+                //    isBindPhone: false
+                //}
+                _this.data = data.data;
                 dialog.close();
+                socket.reConnection();
                 _this._onLogin(data);
-                
-                
+              
+
             } else {
                 $("#login-alert-error").html("<span>" + data.message + "</span>");
             }
@@ -102,6 +105,7 @@
         this.nickName = data.nickName;
         this.avatar = data.avatar;
         this.isBindPhone = data.isBindPhone;
+        this.roleCode = data.roleCode;
 
         $("#zbzhuce").hide();
         $("#login-info").show();
@@ -122,11 +126,33 @@
             $("#ytx-fayan .ask").show();
         }
 
+        var openMenu = [];
+        if (this.isAdmin) {
+            switch (this.roleCode) {
+                case "super_admin":
+                case "admin":
+                    openMenu.push(0, 1, 5);
+                    break;
+                case "emcee":
+                    openMenu.push(0, 1);
+                    break;
+                case "":
 
+            }
+        }
 
     }
 
-    User.prototype.send = function (text,obj) {
+    /*
+    <li><a >发信息</a></li>
+        <li><a  class="kickuser">永久踢出</a></li>
+        <li><a  class="biaojiyonghu">用户标记</a></li>
+        <li><a  class="userlevel">用户等级</a></li>
+        <li><a  class="cancelbiaoji">取消标记</a></li>
+        <li><a  class="biaojimenyou">设置梦游</a></li>
+    */
+
+    User.prototype.send = function (text, obj) {
         //if (!this.isLogin) return;
         obj = obj || {};
         xwz.Socket.getInstance().send(xwz.API_PUBLIC_CHAT_SEND + xwz.COMPANY_ID, obj, text);
@@ -134,7 +160,7 @@
 
 
 
-    
+
 
     User.prototype.RegisteredEvent = function () {
 
@@ -183,7 +209,7 @@
                 var robot = $("#SimulationSelect .SimulationText").attr("value");
                 if (robot && c) {
                     //机器人发言
-                    user.send(text,{ 'uid': robot, 'role': 'robot' })                    
+                    user.send(text, { 'uid': robot, 'role': 'robot' })
                 } else {
                     user.send(text);
                 }
@@ -196,7 +222,7 @@
             return false;
         });
 
-        
+
         //生成表情
         var emotionsData = xwz.Project.emotionsData;
         var ytxPopfaceTitle = '',
@@ -273,7 +299,7 @@
 
 
 
-       
+
 
         $(document).click(function () {
             if (faceOpen) {
@@ -352,7 +378,7 @@
                 }
             });
         });
-        
+
         $("#find_pwd_findcebox .getsmscode").click(function () {
             findPwdAlertDiv.hide();
             var mobile = $("#find_pwd_findcebox #find_pwd_mobile").val();
@@ -375,7 +401,7 @@
             }
             $("#find_pwd_findcebox .getsmscode").attr('disabled', true);
             $.ajax({
-                url: xwz.API_HOST +  '/account/getSmsCode?newUser=false&captcha=' + captcha_v + '&mobile=' + mobile,
+                url: xwz.API_HOST + '/account/getSmsCode?newUser=false&captcha=' + captcha_v + '&mobile=' + mobile,
                 type: 'POST',
                 dataType: 'json'
             }).done(function (data) {
@@ -390,29 +416,28 @@
             })
         });
 
-        
+
         var _onlistTop = $("#onlist").offset().top;
         //绑定左侧用户右键
         $("#onlist").on('contextmenu', 'li', function (e) {
-            //if (!user || !user.isLogin) return;
+            if (!user || !user.isLogin) return;
 
-            var top = $("#onlist").scrollTop() + $(this).offset().top - _onlistTop;
-
-            $("#dropdown").css("top",top).show();
+            var top = $(this).offset().top;
+            $("#dropdown").css("top", top).show();
             return false;
         });
     }
 
 
-    
 
-   xwz.User = User;
 
-   
+    xwz.User = User;
 
 
 
-   
+
+
+
 
 
 }();
