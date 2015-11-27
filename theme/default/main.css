@@ -400,8 +400,8 @@ img {
 
 .onlinebox .onlinecon .ollist li .keabout .namelevel {
     margin-bottom: 3px;
-    overflow: hidden;
     zoom: 1;
+    position:relative;
 }
 
 .onlinebox .onlinecon .ollist li .keabout .namelevel .name {
@@ -422,6 +422,16 @@ img {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
+}
+.onlinebox .onlinecon .ollist li .keabout .namelevel .sleepWalk {
+    position:absolute;
+    left:-20px;
+    top:-5px;
+    width: 15px;
+    height: 15px;
+    margin-right:5px;
+    background:url(images/wuxiaoyonghu.png) no-repeat;
+    display:none;
 }
 
 .onlinebox .onlinecon .ollist li .keabout .namelevel .level.level1 {
@@ -1030,7 +1040,7 @@ img {
 .ytx-guangbo {
     height: 100%;
     position: absolute;
-    top: 500px;
+    top: 50%;
     bottom: 0;
     width: 100%;
     z-index: 10;

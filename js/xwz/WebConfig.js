@@ -5,7 +5,9 @@
 
 
     //websocket服务器
-    xwz.API_HOST = "http://mock.sfbtcn.com:8080"
+    xwz.API_HOST = "http://1818.sfbtcn.com"
+    //xwz.API_HOST = "http://xiaowu.com:8080"  //小伍
+    //xwz.API_HOST = "http://dizhu.com:8080" //地主
 
     //公聊接口
     xwz.API_PUBLIC_CHAT = '/public/chat/'

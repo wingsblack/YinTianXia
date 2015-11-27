@@ -33,16 +33,31 @@
 
     xwz.Util = {
         _time: new Date(),
-        toTime: function (timespan) {
+        toTime: function (timespan, format) {
+            format = format || "hh:mm";
+
             this._time.setTime(timespan);
-            var time = "";
+            var time = "";            
             var tmp;
             tmp = this._time.getHours() + "";
             if (tmp.length == 1) tmp = "0" + tmp;
-            time += tmp + ":";
+            var hh = tmp;
+
             tmp = this._time.getMinutes() + "";
             if (tmp.length == 1) tmp = "0" + tmp;
             time += tmp;
+            var mm = tmp;
+
+            var yyyy = this._time.getFullYear()
+            var MM = this._time.getMonth() + 1;
+            var dd = this._time.getDate();
+
+            time = format.replace("hh", hh)
+                .replace("dd", dd)
+                .replace("MM", MM)
+                .replace("mm", mm)
+                .replace("yyyy",yyyy)
+
             return time;
         },
         namespace: function (paths) {
@@ -62,9 +77,11 @@
             $.ajax({
                 url: url,
                 type: 'GET',
-                dataType: 'json'
-            }).done(function (data) {
-                cb(data);
+                dataType: 'json',
+                success: function (data) {
+                    cb(data);
+                }
+
             });
         }
     })

@@ -839,7 +839,7 @@ var XHRLocalObject = utils.XHRLocalObject = function(method, url, payload) {
     var that = this;
     utils.delay(function(){
         that._start(method, url, payload, {
-            no_credentials: true
+            no_credentials: false
         });
     });
 };

@@ -16,44 +16,20 @@
 
    
 
-    <style type="text/css"></style>
     <script type="text/javascript" src="js/plugin/jquery/jquery.js"></script>
-    <script type="text/javascript" src="js/plugin/artdialog/jquery.artDialog.js"></script>
-  
-    <script src="js/plugin/artdialog/plugins/iframeTools.js"></script>
-    
-    <script src="theme/old/js.js"></script>
-
-    <script type="text/javascript" src="js/plugin/websocket/sockjs.js"></script>
-    <script type="text/javascript" src="js/plugin/websocket/stomp.js"></script>
-
-    <script type="text/javascript" src="js/xwz/xwz.js"></script>
-    <script type="text/javascript" src="js/xwz/WebConfig.js"></script>
-    <script type="text/javascript" src="js/xwz/sock.js"></script>
-    <script type="text/javascript" src="js/xwz/Chat.js"></script>
-    <script type="text/javascript" src="js/xwz/PublicChat.js"></script>
-    <script type="text/javascript" src="js/xwz/Menu.js"></script>
-    <script type="text/javascript" src="js/xwz/User.js"></script>
-
-    <script type="text/javascript" src="js/emotion_data.js"></script>
-    <script type="text/javascript" src="js/xwz/index.js"></script>
-    
     <script type="text/javascript">
-        xwz.COMPANY_ID = "04f3e4566ddb4548a864a7b2c7aab7d7";
-
-        xwz.setConfig({
-            COMPANY_ID: "04f3e4566ddb4548a864a7b2c7aab7d7",
-            isLoginDownload :false
+        $(function () {
+            alert(11)
         })
-
     </script>
+   
 
 </head>
 <body>
     <div class="zbbodybg"></div>
     <div class="lay-topbar">
         <div class="zblogo"><a href="#"><img height="50" src="theme/images/logo.png" alt="玄微子"></a></div>
-        <div id="zbzhuce" class="zbzhuce" style="display:none" ><a class="topzhuce">会员注册登陆</a></div>
+        <div id="zbzhuce" class="zbzhuce" style="display:block" ><a class="topzhuce">会员注册登陆</a></div>
         <div id="login-info" class="login-info"  style="display:none">
             <div class="person_control_wrap">
                 <div class="thumb"><img class="data-avatar" ></div>
@@ -72,7 +48,7 @@
                             </div>
                         </div>
                         <p class="logout-wrap">
-                            <i><img class="logout-icon" src="assets/image/img/logout.jpg" width="30" height="30"></i><a id="btn_logout">退出登录</a>
+                            <i><img class="logout-icon" src="assets/image/img/logout.jpg" width="30" height="30"></i><a href="/account/logout">退出登录</a>
                         </p>
                     </div>
                 </div>
@@ -273,7 +249,9 @@
             </div>
             <div class="zbbigright">
                 <div class="video">
-                    <!--<embed src="" quality="high" width="100%" height="100%" align="middle" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" type="application/x-shockwave-flash">-->
+                   
+                        <!--<embed quality="high" width="100%" height="100%" align="middle" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" type="application/x-shockwave-flash">-->
+                   
                     <div class="video_bottom_adv">
                         <div class="slide txtMarquee-left">
                             <div class="bd">
@@ -659,7 +637,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
+    <script type="text/javascript1">
         //申请开户
         $("#kaihu").click(function () {
             art.dialog({

@@ -9,12 +9,11 @@
     //用户类
     var User = function () {
         if (user != null) return user;
-
-        this.getAllUser();
         this.method = xwz.getUserEvent();
         this.data = {};
         user = this;
     }
+
 
 
     User.prototype.id = null;
@@ -29,28 +28,37 @@
     User.prototype.isMenu = false;
     User.prototype.data = {};
 
-    User.prototype.getAllUser = function () {
+    //打开页面时加载所有在线用户
+    User.getAllUser = function () {
         xwz.Util.ajaxGet(xwz.API_MEM_LIST, this.onLoadAllUser.bind())
     }
 
-    User.prototype.onLoadAllUser = function (data) {
-        var rows = data.rows;
+    User.onLoadAllUser = function (data) {
+        User.appendUser(data.rows);
+    }
+
+    User.appendUser = function (rows) {
+        rows = xwz.isArray(rows) ? rows : [rows];
+        if (rows.length == 0) return;
         var html = '';
         for (var i = 0; i < rows.length; i++) {
             var user = rows[i];
-
-
-            html += '<li data-user="' + user.id + '">' +
+            var time = xwz.Util.toTime(user.lastLoginOn, "yyyy-MM-dd hh:mm");
+            html += '<li data-user="' + user.id + '" data-sleepWalk="' + user.sleepWalk + '" data-validUser="' + user.validUser + '">' +
                 '<img class="avatar" src="' + user.avatar + '"/>' +
                 '<div class="keabout"><div class="namelevel clearFix">' +
                     '<span class="name">' + user.nickName + '</span>' +
-                    '<span class="level level3">LV&nbsp;3</span>' +
+                    '<span class="level level3">LV&nbsp;' + user.identity + '</span>' +
+                    '<span class="sleepWalk"></span>' +
                 '</div>' +
-                '<div class="time">2015-11-08 00:06</div></div></li>'
+                '<div class="time">' + time + '</div></div></li>'
         }
 
         $("#onlist").append($(html));
+
     }
+
+    //----------------------------------------------------------------
 
     User.prototype.message = function (frame) {
         var c = JSON.parse(frame.body);
@@ -63,11 +71,11 @@
 
         } else if (c.eventType == "USER_OFFLINE") {
             $("#onlist").children("li[data-user=" + uid + "]").remove();
-            //xwz.Chat.appendTip(nickName + "下线了");
+            xwz.Chat.appendTip(nickName + "下线了");
 
         } else if (c.eventType == "USER_KICKED") {
             $("#onlist").children("li[data-user=" + uid + "]").remove();
-            //xwz.Chat.appendTip(nickName + "下线了");
+            xwz.Chat.appendTip(nickName + "下线了");
         }
 
 
@@ -90,8 +98,8 @@
                 _this.data = data.data;
                 dialog.close();
                 socket.reConnection();
-                _this._onLogin(data);
-              
+                _this._onLogin(_this.data);
+
 
             } else {
                 $("#login-alert-error").html("<span>" + data.message + "</span>");
@@ -158,7 +166,16 @@
         xwz.Socket.getInstance().send(xwz.API_PUBLIC_CHAT_SEND + xwz.COMPANY_ID, obj, text);
     }
 
-
+    User.prototype.check = function () {
+        xwz.Util.ajaxGet(xwz.API_HOST + '/home/me', function (data) {
+            if (data.code == 0 && data.data != null) {
+                this.data = data.data;
+                this._onLogin(this.data);
+            } else {
+                $("#zbzhuce").show();
+            }
+        }.bind(this));
+    }
 
 
 
@@ -197,6 +214,15 @@
 
             return false;
         });
+
+        //退出登陆
+        $("#btn_logout").click(function () {
+
+            xwz.Util.ajaxGet(xwz.API_HOST + '/account/logout', function (data) {
+
+            })
+        })
+
 
         //发言按钮
         $('#send_msg_btn').click(function () {
@@ -419,13 +445,39 @@
 
         var _onlistTop = $("#onlist").offset().top;
         //绑定左侧用户右键
-        $("#onlist").on('contextmenu', 'li', function (e) {
+        $("#onlist").on('click', 'li', function (e) {
             if (!user || !user.isLogin) return;
+            var dataValiduser = $(this).attr("data-validuser");
+            if (dataValiduser == "false") return;
 
-            var top = $(this).offset().top;
-            $("#dropdown").css("top", top).show();
+            var offset = {
+                left: e.clientX + 10,
+                top: e.clientY
+            }
+
+            var data = {
+                uid: $(this).attr("data-user"),
+                target: $(this),
+                onSleepWalk: function () {
+                    this.target.find(".sleepWalk").show();
+                }
+            }
+
+
+            xwz.dropdown.setData(data)
+
+            $("#dropdown").css({
+                left: offset.left,
+                top: offset.top
+            }).show();
+
+
+
             return false;
         });
+
+
+
     }
 
 
