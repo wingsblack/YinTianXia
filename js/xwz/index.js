@@ -33,10 +33,9 @@ $(function () {
     xwz.User.getAllUser();
     
     var user = new xwz.User();
-
     user.check();
     user.RegisteredEvent();
-
+    xwz.dropdown.user = user;
     //注册用户事件
     socket.RegisteredChat(user);
     

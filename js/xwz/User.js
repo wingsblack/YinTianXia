@@ -43,13 +43,14 @@
         var html = '';
         for (var i = 0; i < rows.length; i++) {
             var user = rows[i];
+            var sleepWalk = user.sleepWalk == "1" ? "style='display:block'" : "";
             var time = xwz.Util.toTime(user.lastLoginOn, "yyyy-MM-dd hh:mm");
             html += '<li data-user="' + user.id + '" data-sleepWalk="' + user.sleepWalk + '" data-validUser="' + user.validUser + '">' +
                 '<img class="avatar" src="' + user.avatar + '"/>' +
                 '<div class="keabout"><div class="namelevel clearFix">' +
                     '<span class="name">' + user.nickName + '</span>' +
                     '<span class="level level3">LV&nbsp;' + user.identity + '</span>' +
-                    '<span class="sleepWalk"></span>' +
+                    '<span class="sleepWalk"  ' + sleepWalk + '></span>' +
                 '</div>' +
                 '<div class="time">' + time + '</div></div></li>'
         }
@@ -124,7 +125,7 @@
         $("img.data-avatar").attr("src", "/images/avatar/t3/32/" + this.avatar + ".png")
         if (this.isBindPhone) $("#bind_mobile").hide();
 
-        this.isAdmin = data.roleCode == "super_admin" || data.roleCode == "service" || data.roleCode == "emcee" || false;
+        this.isAdmin = data.roleCode == "super_admin" || data.roleCode == "service" || data.roleCode == "emcee" || data.roleCode == 'service' || false;
         if (this.isAdmin) {
             $("#editor-bar").show();
             $("#ytx-fayan .ask").hide();
@@ -134,31 +135,85 @@
             $("#ytx-fayan .ask").show();
         }
 
-        var openMenu = [];
-        if (this.isAdmin) {
-            switch (this.roleCode) {
-                case "super_admin":
-                case "admin":
-                    openMenu.push(0, 1, 5);
-                    break;
-                case "emcee":
-                    openMenu.push(0, 1);
-                    break;
-                case "":
+        this.setMenu();
 
-            }
-        }
 
     }
 
-    /*
-    <li><a >发信息</a></li>
-        <li><a  class="kickuser">永久踢出</a></li>
-        <li><a  class="biaojiyonghu">用户标记</a></li>
-        <li><a  class="userlevel">用户等级</a></li>
-        <li><a  class="cancelbiaoji">取消标记</a></li>
-        <li><a  class="biaojimenyou">设置梦游</a></li>
-    */
+    User.prototype.setMenu = function () {
+        var _this;
+        var menus = [];
+
+        menus.push({
+
+            text: "发信息",
+            click: function (li, menu) {
+                var uid = li.attr("data-user");
+                xwz.PrivateChat.talkto(uid, {
+                    uid: uid,
+                    name: li.find(".name").html()
+                });
+            }
+        });
+
+        menus.push({
+            text: "永久踢出",
+            click: function () {
+
+            }
+        });
+
+
+        menus.push({
+            text: "用户标记",
+            click: function () {
+
+            }
+        });
+
+
+        menus.push({
+            text: "用户等级",
+            click: function () {
+
+            }
+        });
+
+
+        menus.push({
+            text: "取消标记",
+            click: function () {
+
+            }
+        });
+
+
+        menus.push({
+            text: "设置梦游",
+            onShow: function (li, menu) {
+                this.text = li.attr("data-sleepwalk") == "0" ? "设置梦游" : "取消梦游";
+            },
+            click: function (li, menu) {
+                var sleepwalk = li.attr("data-sleepwalk");
+                var data = {
+                    uid: this.user,
+                    sleepwalk: sleepwalk == "0" ? "1" : "0"
+                }
+
+                $.post(xwz.API_HOST + '/app/account/updatebyadmin', data,
+               function () {
+                   li.attr("data-sleepwalk", data.sleepwalk);
+                   li.find(".sleepWalk").toggle(data.sleepwalk == "1")
+               });
+            }
+        });
+
+        if (!this.isAdmin) {
+            menus.length = 1;
+            menus[0]._class = "fobidtalk";
+        }
+        xwz.dropdown.add(menus);
+    }
 
     User.prototype.send = function (text, obj) {
         //if (!this.isLogin) return;
@@ -448,28 +503,18 @@
         $("#onlist").on('click', 'li', function (e) {
             if (!user || !user.isLogin) return;
             var dataValiduser = $(this).attr("data-validuser");
-            if (dataValiduser == "false") return;
 
             var offset = {
                 left: e.clientX + 10,
                 top: e.clientY
             }
 
-            var data = {
-                uid: $(this).attr("data-user"),
-                target: $(this),
-                onSleepWalk: function () {
-                    this.target.find(".sleepWalk").show();
-                }
-            }
-
-
-            xwz.dropdown.setData(data)
-
-            $("#dropdown").css({
+            xwz.dropdown.target = $(this);
+            xwz.dropdown.show({
                 left: offset.left,
                 top: offset.top
-            }).show();
+            })
+
 
 
 

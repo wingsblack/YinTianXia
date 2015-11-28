@@ -9,9 +9,9 @@
         var html = '', len = msg.length;
         for (var i = 0; i < len; i++) {
             var message = msg[i];
-
+            if (message.messageType !== "PUBLIC_CHAT") break;
             
-            message.message = message.message.replace(/\[@([^\]]+)]/g, function (a, b, c) {
+            message.message = (message.message + '').replace(/\[@([^\]]+)]/g, function (a, b, c) {
                 var url = emotionsDataMap[b];
                 return '<img src="' + url + '" />';
             })
@@ -46,7 +46,8 @@
                     time: xwz.Util.toTime(message.sendTime),
                     avatar: message.senderAvatar,
                     nickName: message.senderName,
-                    message: message.message
+                    message: message.message,
+                    messageType:message.messageType
                 })
             }
             if (len == 0) return;
@@ -58,5 +59,10 @@
 
     }
     xwz.Chat = Chat;
+
+
+
+   
+
 
 }();

@@ -62,7 +62,7 @@ input, textarea {
 }
 
 .rows .col1 > div {
-    padding-top:30px;
+    padding-top: 30px;
 }
 
 .qq-list {
@@ -1752,8 +1752,8 @@ a.aui_close:hover {
     /* height: 30px; */
     /* line-height: 30px; */
     font-weight: normal;
-    box-sizing:border-box;
-    -webkit-box-sizing:border-box;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 #repassword .fince-title {
@@ -2707,7 +2707,7 @@ marquee a:hover {
     height: 154px;
     background: #0f1c2d;
     padding-top: 10px;
-    padding-left:15px;
+    padding-left: 15px;
     position: relative;
 }
 
@@ -2734,7 +2734,7 @@ marquee a:hover {
 
 .ytx-fayan-toolbar div.ask {
     float: right;
-    margin-top:-5px;
+    margin-top: -5px;
 }
 
 .ytx-fayan-toolbar div.ask a {
@@ -2742,7 +2742,7 @@ marquee a:hover {
     height: 30px;
     width: 30px;
     background: url(../img/t3.png) no-repeat -223px -5px;
-    border:none;
+    border: none;
 }
 
 .ytx-fayan-toolbar a:hover {
@@ -2933,13 +2933,11 @@ marquee a:hover {
 
 
 
-.aui_title { 
-    
-     background: none;      
-      filter:initial;
-    background-color:#003466; 
-     border-top:none;
-
+.aui_title {
+    background: none;
+    filter: initial;
+    background-color: #003466;
+    border-top: none;
 }
 
 
@@ -2987,7 +2985,7 @@ marquee a:hover {
     margin: 0 auto;
     height: 242px;
     padding-top: 18px;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 #user_login_fincebox .social {
@@ -3072,6 +3070,7 @@ marquee a:hover {
     position: relative;
     margin-top: 8px;
 }
+
 .icon-pwd {
     background-image: url(images/icon-pwd.png);
     display: block;
@@ -3439,4 +3438,18 @@ marquee a:hover {
     line-height: 27px;
     padding: 0;
     border: 0;
+}
+
+.dropdown-menu li > a.fobidtalk {
+    color: #CFCBCB;
+    background-color: #fff;
+    outline: none;
+}
+
+.dropdown-menu li > a.fobidtalk:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a {
+    color: #CFCBCB;
+    text-decoration: none;
+    background-color: #fff;
+    background-image: none;
+    outline: none;
 }

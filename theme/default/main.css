@@ -367,6 +367,7 @@ img {
     border-bottom: #000 1px dotted;
     overflow: hidden;
     zoom: 1;
+    cursor:default;
 }
 
 .onlinebox .onlinecon .ollist li i, .onlinebox .onlinecon .ollist li img {
