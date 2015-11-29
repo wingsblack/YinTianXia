@@ -65,10 +65,10 @@
             });
         }
         $("#siliao_diallog").modal('show');
-        //sendPrivateMsg();
+        sendPrivateMsg();
     }
 
-    PrivateChat.talkto = function (uid, userData) {
+    function talkto(uid, userData) {
        _initalize();
 
         if (typeof (talkingList[uid]) != "undefined") {
@@ -128,5 +128,135 @@
         $("#siliao_diallog").find("#chat_windows").append('<div  class="talk_win" id="talk_win_' + uid + '"></div>');
     }
 
+
+    function sendPrivateMsg() {
+        //发送私聊信息
+        $("#send_siliao_btn").unbind("click").bind("click", function (event) {
+            // var text = $.trim($("#siliao_content").val());
+
+            var text = su.getContent();
+            if (text) {
+                if (nowTalkUid) {
+                    var User = xwz.User.getInstance();
+                    xwz.Socket.getInstance().send(xwz.API_PRIVATE_CHAT + nowTalkUid, {}, text);
+                    var nowtime = xwz.Util.toTime(new Date().getTime(),"yyyy-MM-dd hh:mm:ss");
+                    var sex;
+                    if (User.sex == 1) {
+                        sex = "man";
+                    } else {
+                        sex = "woman";
+                    }
+                    var message = '<div class="liaotian-div mymsg"><div class="liaotian-sender">';
+                    message += '<img width="25" height="25" src="/images/avatar/t3/32/' + User.avatar + '.png">';
+                    message += '<i class="name">' + User.nickName + '</i><i><img class="identicon"  src="/front/assets2/identity/' + User.identityIcon + '">';
+                    message += '</i><i><img width="16px" height="16px" src="theme/default/images/' + sex + '.png"></i>';
+                    message += '<i class="time">' + nowtime + '</i></div><div class="liaotian-content"><em>';
+                    message += '</em><div class="message">' + text + '</div><div class="clr"></div></div></div>';
+
+                    $("#siliao_diallog").find("#chat_windows").find(".active").append(message);
+                    $("#siliao_diallog").find("#chat_windows").find(".active")[0].scrollTop = 1e8;
+                    // $("#siliao_content").val("");
+                    su.setContent("");
+                } else {
+                    alert("请选择聊天对象");
+                }
+            } else {
+                alert("聊天信息不能为空");
+            }
+            return false;
+        });
+    }
+
+
+    PrivateChat.method = xwz.API_PRIVATE_CHAT_GET;
+    PrivateChat.message = function (message) {
+        var c = JSON.parse(message.body);
+        if (c.eventType == "PRIVATE_CHAT") {
+            var data = {};
+            var uid;
+            data.createdAt = c.createTime;
+            data.textMessage = c.textMessage;
+
+            data.avatar = c.messageFrom.avatar;
+            data.nickName = c.messageFrom.nickName;
+            uid = data.uid = c.messageFrom.id;
+            data.sex = c.messageFrom.sex;
+            data.identityIcon = c.messageFrom.identityIcon;
+
+            var _user = {}
+            _user["uid"] = uid;
+            _user["header"] = data.avatar;
+            _user["name"] = data.nickName;
+            if (data.sex == 1) {
+                _user["sex"] = '/front/assets2/img/man.png';
+            } else {
+                _user["sex"] = '/front/assets2/img/woman.png';
+            }
+
+            _user["identityIcon"] = data.identityIcon;
+
+            var ctime = xwz.Util.toTime(data.createdAt, "yyyy-MM-dd hh:mm:ss")
+            var msg = data.textMessage;
+            var avatar = data.avatar;
+            var nickName = data.nickName;
+            var sendid = data.uid;
+            var sex = data.sex;
+            var identityIcon = data.identityIcon;
+
+            if (sex != 'woman') sex = 'man';
+            var mymsgClass = '';
+
+            if (xwz.User.getInstance().id == sendid) {
+                mymsgClass = 'mymsg';
+            }
+            var tpl = '<div class="liaotian-div ' + mymsgClass + '">';
+            tpl += '<div class="liaotian-sender">';
+            tpl += '<img  width="25" height="25" src="' + avatar + '">';
+            tpl += '<i class="name">' + nickName + '</i>';
+            tpl += '<i><img class="identicon"  src="' + identityIcon + '"></i>'
+            tpl += '<i><img width="16px" height="16px" src="/front/assets2/img/' + sex + '.png"></i>';
+            tpl += '<i class="time">' + ctime + '</i>';
+            tpl += '</div>';
+            tpl += '<div class="liaotian-content">';
+            tpl += '<em></em>';
+            tpl += '<div class="message">' + msg + '</div>';
+            tpl += '<div class="clr"></div>';
+            tpl += '</div>';
+            tpl += '</div>';
+
+            if ($("#siliao_diallog").length == 0) {
+                //没有私聊窗口 直接弹出
+                xwz.PrivateChat.talkto(uid, _user);
+                $("#siliao_diallog").find("#chat_windows").find("#talk_win_" + uid).append(tpl);
+                $("#siliao_diallog").find("#chat_windows").find("#talk_win_" + uid)[0].scrollTop = 1e8;
+            } else {
+                var userTab = $("#siliao_diallog").find(".siliao_tabs").find("#talk_tab_" + uid);
+                if (userTab.length == 0) {
+                    // createUserTab(uid);
+                    // talkto(uid,_user);
+                    talkingList[uid] = _user;
+                    xwz.PrivateChat.createUserTab(uid);
+                }
+                xwz.PrivateChat.activeUserTab(uid);
+                $("#siliao_diallog").find("#chat_windows").find("#talk_win_" + uid).append(tpl);
+                $("#siliao_diallog").find("#chat_windows").find("#talk_win_" + uid)[0].scrollTop = 1e8;
+                if (nowTalkUid != uid) {
+                    $("#siliao_diallog").find("#chat_windows").find("#talk_win_" + uid).hide();
+                }
+                if ($("#siliao_diallog").is(":hidden")) {
+                    $("#siliao_diallog").modal('show');
+                }
+            }
+        }
+    }
+
+
+    PrivateChat.activeUserTab = activeUserTab;
+    PrivateChat.talkto = talkto;
+    PrivateChat.createUserTab = createUserTab;
+
+
+
     xwz.PrivateChat = PrivateChat;
+
 }();

@@ -59,6 +59,10 @@
 
     }
 
+    User.getInstance = function () {
+        return user;
+    }
+
     //----------------------------------------------------------------
 
     User.prototype.message = function (frame) {
@@ -137,7 +141,12 @@
 
         this.setMenu();
 
+        this.RegisteredPrivateChat(xwz.Socket.getInstance());
+    }
 
+    User.prototype.RegisteredPrivateChat = function (socket) {
+        xwz.PrivateChat.method = xwz.API_PRIVATE_CHAT_GET + this.id;
+        socket.RegisteredChat(xwz.PrivateChat);
     }
 
     User.prototype.setMenu = function () {

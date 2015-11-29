@@ -12,6 +12,8 @@
     //公聊接口
     xwz.API_PUBLIC_CHAT = '/public/chat/'
 
+    xwz.API_PRIVATE_CHAT = '/app/private/chat/';
+    xwz.API_PRIVATE_CHAT_GET = '/private/chat/';
     //会员列表
     xwz.API_MEM_LIST = xwz.API_HOST + '/home/allman'
 

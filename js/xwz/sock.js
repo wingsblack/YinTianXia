@@ -64,12 +64,10 @@
         })
     }
 
-
     _Socket.prototype.RegisteredChat = function (chat) {
         this._listen.push(chat);
         if (this.isConnection) this._ListenChat();
     }
-
 
     _Socket.prototype.send = function (api, obj, text) {
         this._client.send(api, obj, text);

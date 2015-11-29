@@ -51,12 +51,18 @@
             var yyyy = this._time.getFullYear()
             var MM = this._time.getMonth() + 1;
             var dd = this._time.getDate();
+            var mm = this._time.getMinutes();
+            var ss = this._time.getSeconds();
+
 
             time = format.replace("hh", hh)
                 .replace("dd", dd)
                 .replace("MM", MM)
                 .replace("mm", mm)
-                .replace("yyyy",yyyy)
+                .replace("yyyy", yyyy)
+                .replace("mm", mm)
+                .replace("ss", ss)
+            
 
             return time;
         },
